@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fluxos Migratórios no Brasil — Aula Completa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f1e6; --bg2:#efe6d6; --card:#fffdf8; --ink:#2a2420; --ink2:#5b5048; --line:#e0d4bf;
+  --terra:#b5573a; --terra-soft:#f5e0d6; --green:#2f5d46; --green-soft:#dcebe2;
+  --char:#3b3a38; --gold:#b8862a; --gold-soft:#f6ead0; --blue:#2c5d8a; --blue-soft:#dde9f4;
+  --red:#a8322a; --red-soft:#f8dedb; --violet:#6a4c93; --violet-soft:#ebe3f5;
+  --shadow:0 1px 2px rgba(60,40,20,.06),0 6px 22px rgba(60,40,20,.07);
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+:root[data-theme="dark"]{
+  --bg:#1c1916; --bg2:#25211d; --card:#2a2622; --ink:#efe7da; --ink2:#bfb3a3; --line:#3d3731;
+  --terra:#e0835f; --terra-soft:#3d2a22; --green:#7cc39a; --green-soft:#223229;
+  --char:#d9d3ca; --gold:#e2b458; --gold-soft:#3a3120; --blue:#8ab8e6; --blue-soft:#1f2c3a;
+  --red:#ee8a80; --red-soft:#3d2321; --violet:#b9a0e0; --violet-soft:#2e2639;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 22px rgba(0,0,0,.25);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1c1916; --bg2:#25211d; --card:#2a2622; --ink:#efe7da; --ink2:#bfb3a3; --line:#3d3731;
+    --terra:#e0835f; --terra-soft:#3d2a22; --green:#7cc39a; --green-soft:#223229;
+    --char:#d9d3ca; --gold:#e2b458; --gold-soft:#3a3120; --blue:#8ab8e6; --blue-soft:#1f2c3a;
+    --red:#ee8a80; --red-soft:#3d2321; --violet:#b9a0e0; --violet-soft:#2e2639;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 22px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:78px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.68;-webkit-font-smoothing:antialiased}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--terra),var(--gold),var(--green));z-index:100}
+/* NAV */
+.topnav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topnav .in{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 16px}
+.brand{font-family:var(--serif);font-weight:700;font-size:1.02rem;white-space:nowrap;color:var(--terra)}
+.navlinks{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{font-size:.82rem;font-weight:600;color:var(--ink2);text-decoration:none;padding:6px 10px;border-radius:999px;white-space:nowrap;transition:.2s}
+.navlinks a:hover{background:var(--bg2);color:var(--ink)}
+.navlinks a.active{background:var(--terra);color:#fff}
+.themebtn{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 12px;font:600 .8rem var(--sans);cursor:pointer;white-space:nowrap}
+/* LAYOUT */
+main{max-width:1000px;margin:0 auto;padding:0 16px 80px}
+section.block{padding-top:56px}
+.kicker{font:600 .75rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--terra);margin-bottom:6px}
+h1,h2,h3,h4{font-family:var(--serif);line-height:1.2;color:var(--ink)}
+h2{font-size:2rem;margin:0 0 14px}
+h3{font-size:1.4rem;margin:38px 0 10px;padding-top:6px;border-top:1px dashed var(--line)}
+h3:first-of-type{border-top:none}
+h4{font-size:1.1rem;margin:22px 0 8px}
+p{margin:10px 0}
+a{color:var(--blue)}
+strong{color:var(--ink)}
+.lead{font-size:1.1rem;color:var(--ink2)}
+.mono{font-family:var(--mono);font-size:.9em}
+/* HERO */
+.hero{background:linear-gradient(135deg,#3b3a38 0%,#2a2420 60%,#4a2a1f 100%);color:#f7f1e6;padding:64px 16px 54px}
+.hero .in{max-width:1000px;margin:0 auto}
+.hero h1{color:#fff;font-size:clamp(2.1rem,5.4vw,3.5rem);margin:6px 0 12px;letter-spacing:-.01em}
+.hero .sub{font-size:1.15rem;color:#e8dccb;max-width:720px}
+.hero .kicker{color:#f0a283}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{font:600 .78rem var(--mono);padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#f7f1e6}
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:26px}
+.legend div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:10px 12px;font-size:.88rem;color:#efe3d2}
+.legend b{display:block;color:#fff;font-size:.9rem}
+/* CARDS & BOXES */
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;box-shadow:var(--shadow);margin:18px 0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.box{border-radius:14px;padding:14px 18px;margin:16px 0;border-left:5px solid;background:var(--card)}
+.box .t{font:700 .78rem var(--mono);letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:4px}
+.box.comp{background:var(--blue-soft);border-color:var(--blue)} .box.comp .t{color:var(--blue)}
+.box.warn{background:var(--red-soft);border-color:var(--red)} .box.warn .t{color:var(--red)}
+.box.exam{background:var(--gold-soft);border-color:var(--gold)} .box.exam .t{color:var(--gold)}
+.box.doubt{background:var(--violet-soft);border-color:var(--violet)} .box.doubt .t{color:var(--violet)}
+.box.analog{background:var(--green-soft);border-color:var(--green)} .box.analog .t{color:var(--green)}
+.box.key{background:var(--terra-soft);border-color:var(--terra)} .box.key .t{color:var(--terra)}
+.box p:first-of-type{margin-top:0} .box p:last-child{margin-bottom:0}
+.box ul{margin:6px 0;padding-left:20px}
+/* TABLES */
+.tw{overflow-x:auto;margin:16px 0;border-radius:12px;border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;background:var(--card)}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--bg2);font-weight:700;font-size:.85rem}
+tr:last-child td{border-bottom:none}
+td.num,th.num{text-align:right;font-family:var(--mono);font-size:.88rem;white-space:nowrap}
+/* PRE / SCHEMES */
+pre.scheme{font-family:var(--mono);font-size:.82rem;line-height:1.55;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:16px 18px;overflow-x:auto;color:var(--ink);margin:16px 0;white-space:pre}
+/* FLOW */
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;margin:16px 0}
+.flow .st{flex:1 1 170px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:.92rem;border-top:4px solid var(--terra)}
+.flow .st:nth-child(4n+3){border-top-color:var(--green)}
+.flow .st:nth-child(4n+5){border-top-color:var(--char)}
+.flow .st b{display:block;font-family:var(--serif);font-size:1rem;margin-bottom:4px}
+.flow .ar{align-self:center;font-size:1.4rem;color:var(--ink2)}
+/* TIMELINE */
+.tl{position:relative;margin:18px 0;padding-left:26px}
+.tl:before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:3px;background:linear-gradient(var(--terra),var(--green));border-radius:3px}
+.tl .ev{position:relative;margin:0 0 16px}
+.tl .ev:before{content:"";position:absolute;left:-24px;top:7px;width:13px;height:13px;border-radius:50%;background:var(--card);border:3px solid var(--terra)}
+.tl .yr{font:700 .82rem var(--mono);color:var(--terra)}
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:16px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.stat .n{font-family:var(--serif);font-size:1.7rem;font-weight:700;color:var(--terra);line-height:1.1}
+.stat .l{font-size:.84rem;color:var(--ink2)}
+/* CHARTS */
+.chart{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:18px 0}
+.chart .ct{font-family:var(--serif);font-weight:700;font-size:1.02rem;margin-bottom:2px}
+.chart .cs{font-size:.8rem;color:var(--ink2);margin-bottom:12px}
+.hb{display:grid;grid-template-columns:minmax(90px,170px) 1fr auto;gap:6px 10px;align-items:center;font-size:.85rem}
+.hb .lb{text-align:right;color:var(--ink2)}
+.hb .tr{position:relative;height:22px;background:var(--bg2);border-radius:6px;overflow:hidden}
+.hb .fl{height:100%;background:var(--terra);border-radius:6px 0 0 6px}
+.hb .fl.g{background:var(--green)} .hb .fl.c{background:var(--char)} .hb .fl.b{background:var(--blue)} .hb .fl.y{background:var(--gold)}
+.hb .vl{font:600 .76rem var(--mono);color:var(--ink);white-space:nowrap;min-width:64px;text-align:right}
+.vc{display:flex;align-items:flex-end;gap:6px;height:220px;padding-top:20px;border-bottom:2px solid var(--line)}
+.vc .col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;min-width:0}
+.vc .bar{width:100%;max-width:46px;background:var(--terra);border-radius:5px 5px 0 0;position:relative}
+.vc .bar.g{background:var(--green)}
+.vc .v{font:600 .66rem var(--mono);color:var(--ink);margin-bottom:3px;white-space:nowrap}
+.vx{display:flex;gap:6px;margin-top:5px}
+.cscroll{overflow-x:auto;padding-bottom:4px}
+.vx span{flex:1;text-align:center;font:600 .64rem var(--mono);color:var(--ink2);min-width:0;overflow:hidden}
+.div{display:flex;gap:6px;align-items:center;height:250px}
+.div .col{flex:1;height:100%;display:flex;flex-direction:column;min-width:0}
+.div .up,.div .dn{flex:1;display:flex;flex-direction:column;align-items:center}
+.div .up{justify-content:flex-end;border-bottom:2px solid var(--line)}
+.div .dn{justify-content:flex-start}
+.div .bi{width:100%;max-width:46px;background:var(--blue)}
+.div .bo{width:100%;max-width:46px;background:var(--red)}
+.div .v{font:600 .64rem var(--mono);white-space:nowrap;margin:2px 0}
+.lgd{display:flex;gap:14px;flex-wrap:wrap;font-size:.8rem;color:var(--ink2);margin-top:10px}
+.lgd i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+/* QUESTIONS */
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin:10px 0;overflow:hidden}
+summary{cursor:pointer;padding:12px 16px;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:10px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"＋";color:var(--terra);font-weight:700}
+details[open] summary:after{content:"－"}
+details .db{padding:4px 18px 16px;border-top:1px solid var(--line)}
+.q{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin:20px 0;box-shadow:var(--shadow)}
+.q .src{font:700 .75rem var(--mono);color:var(--terra);letter-spacing:.06em}
+.alts{list-style:none;padding:0;margin:10px 0}
+.alts li{padding:8px 12px;border:1px solid var(--line);border-radius:10px;margin:6px 0;font-size:.95rem}
+.alts li.ok{border-color:var(--green);background:var(--green-soft)}
+/* VIDEOS */
+.vgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px;margin:14px 0}
+a.vid{display:flex;flex-direction:column;gap:6px;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow);transition:.2s;border-top:4px solid var(--red)}
+a.vid:hover{transform:translateY(-2px);border-color:var(--red)}
+a.vid .vt{font-weight:700;line-height:1.35}
+a.vid .va{font-size:.84rem;color:var(--ink2)}
+a.vid .vw{font-size:.84rem;color:var(--ink2)}
+a.vid .go{margin-top:auto;align-self:flex-start;background:var(--red);color:#fff;font:700 .8rem var(--sans);padding:7px 12px;border-radius:999px}
+.vmini{display:inline-flex;align-items:center;gap:8px;margin:8px 8px 0 0;text-decoration:none;background:var(--red);color:#fff;font:700 .82rem var(--sans);padding:8px 14px;border-radius:999px}
+.vmini:hover{filter:brightness(1.08)}
+/* MISC */
+ul.clean{padding-left:20px} ul.clean li{margin:5px 0}
+.tag{display:inline-block;font:700 .68rem var(--mono);padding:2px 7px;border-radius:6px;background:var(--bg2);color:var(--ink2);vertical-align:1px}
+.hl{background:linear-gradient(transparent 58%,var(--gold-soft) 58%);padding:0 2px}
+.sep{height:1px;background:var(--line);margin:30px 0}
+.modhead{display:flex;gap:14px;align-items:center;margin-bottom:8px}
+.modnum{font:700 1.5rem var(--serif);width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:var(--terra);color:#fff;flex:none}
+.modhead h2{margin:0}
+.fc{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+.fc details summary{font-weight:600}
+footer{max-width:1000px;margin:0 auto;padding:30px 16px 50px;color:var(--ink2);font-size:.85rem;border-top:1px solid var(--line)}
+@media (max-width:640px){
+  body{font-size:16px} h2{font-size:1.6rem} h3{font-size:1.22rem}
+  .card,.q{padding:16px} .hb{grid-template-columns:86px 1fr auto;font-size:.76rem} .hb .vl{min-width:50px;font-size:.68rem}
+  .vc .v,.div .v{font-size:.55rem} .vx span{font-size:.55rem}
+  .brand{display:none}
+}
+@media print{
+  .topnav,#progress,.themebtn,.vmini{display:none!important}
+  body{background:#fff;color:#000;font-size:11.5pt}
+  .hero{background:#fff!important;color:#000;padding:20px 0}
+  .hero h1,.hero .sub,.hero .kicker,.chip,.legend div,.legend b{color:#000!important}
+  .card,.q,.box,.chart,details{box-shadow:none;break-inside:avoid}
+  details{display:block} details .db{display:block!important}
+  section.block{padding-top:18px}
+  a.vid{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<nav class="topnav"><div class="in">
+  <span class="brand">Fluxos Migratórios</span>
+  <div class="navlinks" id="navlinks">
+    <a href="#visao">Visão geral</a>
+    <a href="#m1">1 · Conceitos</a>
+    <a href="#m2">2 · Imigração XIX–XX</a>
+    <a href="#m3">3 · Migrações internas</a>
+    <a href="#m4">4 · Novos fluxos</a>
+    <a href="#m5">5 · Emigração</a>
+    <a href="#m6">6 · Atualidades</a>
+    <a href="#exemplos">Analogias</a>
+    <a href="#esquemas">Esquemas</a>
+    <a href="#pegadinhas">Pegadinhas</a>
+    <a href="#prova">Cai em prova</a>
+    <a href="#videos">Vídeos</a>
+    <a href="#revisao">Revisão</a>
+  </div>
+  <button class="themebtn" id="themebtn" type="button" aria-label="Alternar tema claro/escuro">◐ Tema</button>
+</div></nav>
+
+<header class="hero"><div class="in">
+  <div class="kicker">Geografia · 2ª série · Tema 07</div>
+  <h1>Fluxos Migratórios no Brasil</h1>
+  <p class="sub">Da imigração europeia do café à fuga de cérebros: quem chegou, quem saiu, quem se deslocou dentro do país e por quê. Uma aula completa, do zero ao nível de vestibular.</p>
+  <div class="meta">
+    <span class="chip">Prof. Bruno Mastrocola</span>
+    <span class="chip">Livro 04 · Cap. 02 · pág. 38–42</span>
+    <span class="chip">3 apresentações · 49 slides</span>
+    <span class="chip">FUVEST · Unicamp · Unesp · UERJ · UFPR · ENEM</span>
+  </div>
+  <div class="legend">
+    <div><b>🟦 Complemento</b>Informação que não está nos slides, adicionada para você entender melhor.</div>
+    <div><b>🟪 Leitura do slide / incerteza</b>Algo ilegível, ambíguo ou contraditório no material — sinalizado, não inventado.</div>
+    <div><b>🟥 Pegadinha</b>Onde o aluno costuma errar.</div>
+    <div><b>🟨 Cai em prova</b>O que as bancas mais cobram.</div>
+  </div>
+</div></header>
+
+<main>
+
+<!-- ============ VISÃO GERAL ============ -->
+<section class="block" id="visao">
+  <div class="kicker">Parte 0</div>
+  <h2>Visão geral do tema</h2>
+  <p class="lead">Este tema responde a uma pergunta só: <strong>por que as pessoas se deslocam pelo território e o que isso faz com o Brasil?</strong> O material do professor organiza a resposta em três grandes movimentos, em ordem cronológica.</p>
+
+  <div class="flow">
+    <div class="st"><b>① Imigração (séc. XIX–XX)</b>Europeus e japoneses chegam para substituir a mão de obra escravizada no café. Depois de 1930, o Estado passa a controlar quem entra.</div>
+    <div class="ar">→</div>
+    <div class="st"><b>② Migrações internas (séc. XX–XXI)</b>Brasileiros se deslocam dentro do país: Nordeste → Sudeste, depois rumo ao Centro-Oeste e Norte, e hoje migração de retorno e para cidades médias.</div>
+    <div class="ar">→</div>
+    <div class="st"><b>③ Novos fluxos e atualidades</b>Chegam imigrantes do Sul Global (haitianos, venezuelanos, bolivianos, africanos). Ao mesmo tempo, brasileiros emigram: a “fuga de cérebros”.</div>
+  </div>
+
+  <div class="box key"><span class="t">A ideia que costura tudo</span>
+    <p>Todo fluxo migratório tem <strong>um lado que expulsa</strong> (fatores de repulsão) e <strong>um lado que atrai</strong> (fatores de atração). Em quase todo o tema, esses fatores são <strong>econômicos</strong> (café, indústria, fronteira agrícola, crise) e <strong>políticos</strong> (leis, cotas, projetos de ocupação, guerras). Se você souber dizer “de onde, para onde, quando e por quê”, você domina o assunto.</p>
+  </div>
+
+  <h4>Linha do tempo-mestra</h4>
+  <div class="tl">
+    <div class="ev"><span class="yr">1850</span> — Lei Eusébio de Queirós (fim do tráfico) + Lei de Terras → a elite cafeeira passa a subsidiar a imigração europeia.</div>
+    <div class="ev"><span class="yr">1870–1953</span> — Grande onda imigratória: <strong>4.875.040</strong> imigrantes registrados, com pico entre 1880 e 1930.</div>
+    <div class="ev"><span class="yr">1930–1934</span> — Era Vargas: Lei dos 2/3 (1930) e Lei de Cotas de 2% (Constituição de 1934). A “porta aberta” vira “porta vigiada”.</div>
+    <div class="ev"><span class="yr">1930–1950</span> — Nordeste → Sudeste (industrialização).</div>
+    <div class="ev"><span class="yr">1950–1970</span> — Sul e Nordeste → Centro-Oeste e Norte (fronteira agrícola, Brasília, rodovias).</div>
+    <div class="ev"><span class="yr">1970–1990</span> — Explosão da urbanização e do êxodo rural (mecanização do campo).</div>
+    <div class="ev"><span class="yr">Pós-1990/2000</span> — Menos migração inter-regional; migração de retorno (SE → NE) e intrarregional; ascensão das cidades médias.</div>
+    <div class="ev"><span class="yr">2010 em diante</span> — Haitianos, venezuelanos e outros imigrantes do Sul Global; crescimento da emigração qualificada (fuga de cérebros).</div>
+    <div class="ev"><span class="yr">Pós-pandemia</span> — Contraurbanização: profissionais qualificados deixam capitais rumo a cidades menores (home office).</div>
+  </div>
+</section>
+
+<!-- ============ MÓDULO 1 ============ -->
+<section class="block" id="m1">
+  <div class="modhead"><div class="modnum">1</div><div><div class="kicker">Explicação completa · Módulo 1</div><h2>Conceitos-base e o Brasil de hoje</h2></div></div>
+
+  <h3>1.1 População × Povo: duas categorias, duas escalas</h3>
+  <p>Os slides abrem com uma distinção que parece filosófica, mas é a chave para ler o tema inteiro:</p>
+  <div class="grid2">
+    <div class="card" style="border-top:4px solid var(--char)">
+      <h4 style="margin-top:0">População</h4>
+      <p><strong>Conceito demográfico e estatístico.</strong> É o que se <em>conta</em>.</p>
+      <ul class="clean"><li>Número de habitantes</li><li>Território</li><li>Natalidade</li><li>Distribuição por idade e sexo</li></ul>
+    </div>
+    <div class="card" style="border-top:4px solid var(--terra)">
+      <h4 style="margin-top:0">Povo</h4>
+      <p><strong>Conceito sociológico, histórico e político.</strong> É o que se <em>é</em>.</p>
+      <ul class="clean"><li>Identidade</li><li>Cultura</li><li>Memória coletiva</li><li>Cidadania e pertencimento</li></ul>
+    </div>
+  </div>
+  <div class="box key"><span class="t">Frase do slide</span><p>“A Geografia une os dois conceitos: quando <strong>pessoas</strong> se deslocam no território, <strong>identidades e direitos</strong> são reorganizados.”</p></div>
+  <div class="box analog"><span class="t">Exemplo concreto</span><p>Um venezuelano que cruza a fronteira em Pacaraima (RR) entra <strong>na população</strong> brasileira no mesmo dia: ele já é contado. Mas entrar <strong>no povo</strong> (ter documentos, direitos, se sentir pertencente, ser aceito) é um processo lento. É por isso que o último módulo do professor se chama “Novos fluxos e a <em>reconstrução da identidade</em>”.</p></div>
+
+  <h3>1.2 O panorama demográfico atual</h3>
+  <div class="stats">
+    <div class="stat"><div class="n">203 mi</div><div class="l">habitantes no Censo 2022</div></div>
+    <div class="stat"><div class="n">213,4 mi</div><div class="l">estimativa para 2025</div></div>
+    <div class="stat"><div class="n">35 anos</div><div class="l">idade mediana</div></div>
+  </div>
+  <p>A pirâmide etária do slide tem dois detalhes anotados:</p>
+  <ul class="clean">
+    <li><strong>Topo alargado:</strong> aumento da expectativa de vida e envelhecimento da população, <strong>especialmente feminino</strong> (há mais mulheres que homens nas idades avançadas).</li>
+    <li><strong>Base estreita:</strong> queda acelerada da taxa de fecundidade: nascem menos crianças.</li>
+  </ul>
+  <p>Conclusão do slide: <strong>“Menos jovens, mais idosos: o Brasil vive o auge de sua transição demográfica.”</strong></p>
+  <div class="box comp"><span class="t">Complemento para melhor compreensão:</span>
+    <p><strong>Idade mediana</strong> é a idade que divide a população ao meio: metade tem menos de 35 anos e metade tem mais. Quanto maior a mediana, mais envelhecida a população.</p>
+    <p><strong>Transição demográfica</strong> é a passagem de um regime de natalidade e mortalidade altas para um regime em que as duas são baixas. Primeiro cai a mortalidade (a população explode), depois cai a natalidade (o crescimento desacelera e a população envelhece).</p>
+    <p><strong>Ligação com migração:</strong> quem migra é, em geral, <strong>adulto jovem em idade de trabalhar</strong>. Você vai ver isso nos dados dos venezuelanos (72% entre 20 e 39 anos). Um país envelhecido pode, no futuro, depender mais de imigrantes para completar sua força de trabalho, como já acontece na Europa e no Japão.</p>
+  </div>
+
+  <h3>1.3 O mosaico populacional: as três matrizes</h3>
+  <div class="grid3">
+    <div class="card" style="border-top:4px solid var(--green)"><h4 style="margin-top:0">Indígena</h4><p>Povos originários. Base <strong>territorial, ecológica e linguística</strong>. Resistência histórica.</p></div>
+    <div class="card" style="border-top:4px solid var(--terra)"><h4 style="margin-top:0">Africana</h4><p><strong>Diáspora compulsória</strong> (deslocamento forçado). O trabalho que construiu o país. Luta, religião e base cultural profunda.</p></div>
+    <div class="card" style="border-top:4px solid var(--char)"><h4 style="margin-top:0">Europeia</h4><p>Colonizadores <strong>e</strong> imigrantes. Apropriação de terras, urbanização e <strong>transição do trabalho</strong> (do escravizado para o livre).</p></div>
+  </div>
+  <div class="box key"><span class="t">Frase do slide</span><p>“A miscigenação não é apenas mistura. É um processo histórico complexo marcado por <strong>encontros, conflitos, escravidão e hierarquias</strong> que moldaram a cidadania brasileira.”</p></div>
+  <div class="box warn"><span class="t">Pegadinha</span><p>Alternativas que descrevem a formação do povo brasileiro como “mistura harmoniosa” ou “convivência pacífica entre raças” estão <strong>erradas</strong>. Essa visão é chamada de <em>mito da democracia racial</em> (complemento). As bancas cobram justamente a ideia do slide: houve mistura, <strong>mas com violência e hierarquia</strong>.</p></div>
+
+  <h3>1.4 O vocabulário das migrações</h3>
+  <p>O professor fecha a apresentação de migrações internas com um mapa conceitual (“O Mapa das Migrações”) que classifica os movimentos por <strong>tempo</strong>, <strong>espaço</strong> e <strong>motivação</strong>. Ele vale para o tema inteiro, por isso fica aqui no começo.</p>
+
+  <div class="box comp"><span class="t">Complemento para melhor compreensão: termos básicos</span>
+    <ul>
+      <li><strong>Migração:</strong> qualquer mudança de residência entre lugares.</li>
+      <li><strong>Imigração:</strong> <em>entrada</em> num país (i de “in”, entrar). <strong>Emigração:</strong> <em>saída</em> de um país (e de “exit”, sair). A mesma pessoa é emigrante para o país que deixa e imigrante para o país que recebe.</li>
+      <li><strong>Saldo migratório</strong> = imigrantes − emigrantes. Positivo: o lugar ganha gente. Negativo: perde.</li>
+      <li><strong>Fatores de repulsão</strong> (expulsam): seca, desemprego, guerra, concentração de terras. <strong>Fatores de atração</strong> (atraem): emprego, salário, serviços, segurança.</li>
+      <li><strong>Redes migratórias:</strong> parentes e conterrâneos que já migraram ajudam os próximos com informação, moradia e emprego. Isso explica por que certos fluxos se mantêm por décadas.</li>
+    </ul>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h4 style="margin-top:0">Migração por tempo e ciclos</h4>
+      <p><strong>Migração pendular:</strong> movimento de ida e volta que ocorre <strong>obrigatoriamente dentro do mesmo dia</strong>: casa → trabalho/estudo → casa. Ex.: quem mora em Guarulhos e trabalha em São Paulo.</p>
+      <p><strong>Sazonal × Transumância:</strong> as duas ocorrem <strong>em épocas específicas</strong> do ano. Segundo o slide, a transumância é <strong>ligada especificamente ao trabalho</strong>.</p>
+      <p><strong>Nomadismo:</strong> migração contínua e sem residência fixa, comum entre nossos ancestrais.</p>
+    </div>
+    <div class="card">
+      <h4 style="margin-top:0">Migração por espaço e motivação</h4>
+      <p><strong>Êxodo rural:</strong> campo → cidade, em busca de oportunidades.</p>
+      <p><strong>Êxodo urbano:</strong> o caminho inverso (cidade → campo ou cidade menor).</p>
+      <p><strong>Escalas geográficas:</strong> intraurbanos (o slide escreve “entre cidades”) e internacionais (entre nações).</p>
+      <p><strong>Refúgio, a migração forçada:</strong> causada por fatores externos como guerras, crises civis ou fenômenos climáticos.</p>
+    </div>
+  </div>
+
+  <div class="box doubt"><span class="t">Leitura do slide: atenção</span>
+    <p>O slide escreve “<strong>Intraurbanos (entre cidades)</strong>”. Pela definição usual, <strong>intraurbano</strong> é o movimento <em>dentro</em> de uma mesma cidade (de um bairro a outro), e o deslocamento <em>entre</em> cidades seria <strong>interurbano</strong> (ou intermunicipal). A interpretação mais provável é que o slide quis mostrar a escala “dentro do país” × “entre países”. Na prova, use as definições precisas.</p>
+  </div>
+  <div class="box comp"><span class="t">Complemento para melhor compreensão: sazonal × transumância</span>
+    <p>Muitos livros tratam <strong>transumância</strong> como um tipo de migração sazonal ligado a uma atividade econômica e ao ritmo da natureza: o trabalhador sai na época em que sua região não oferece trabalho e volta quando ela oferece. Exemplo clássico: o sertanejo que vai trabalhar no corte da cana no Sudeste durante a seca e volta ao Sertão na época das chuvas para plantar. Também se usa o termo para o deslocamento de rebanhos entre pastagens (no Brasil, historicamente, o gado do Sertão). Diferença prática: <strong>toda transumância é sazonal</strong>, mas nem todo deslocamento sazonal é transumância (por exemplo, o turismo de temporada).</p>
+  </div>
+  <div class="box comp"><span class="t">Complemento para melhor compreensão: refugiado × migrante</span>
+    <p><strong>Refugiado</strong> é quem foge de <strong>perseguição</strong> (por raça, religião, nacionalidade, grupo social ou opinião política) segundo a Convenção da ONU de 1951. No Brasil, a Lei 9.474/1997 ampliou o conceito para incluir quem foge de <strong>grave e generalizada violação de direitos humanos</strong>, e foi com base nela que muitos venezuelanos foram reconhecidos. Já quem migra por motivo econômico é <strong>migrante</strong>, não refugiado. Os “refugiados climáticos” citados no slide ainda <strong>não</strong> têm reconhecimento jurídico formal na Convenção de 1951. Isso é uma pegadinha comum.</p>
+  </div>
+
+  <p><a class="vmini" href="https://www.youtube.com/watch?v=XMf-YP9RG4g" target="_blank" rel="noopener">▶ Vídeo do módulo: Tipos de Migrações (Stoodi)</a></p>
+</section>
+
+<!-- ============ MÓDULO 2 ============ -->
+<section class="block" id="m2">
+  <div class="modhead"><div class="modnum">2</div><div><div class="kicker">Explicação completa · Módulo 2</div><h2>Imigração: formação populacional e trabalho (séc. XIX e XX)</h2></div></div>
+
+  <h3>2.1 1850: o ano que redesenhou o trabalho no Brasil</h3>
+  <p>Duas leis aprovadas no mesmo ano mudaram tudo. Entenda cada uma e depois veja como elas se encaixam.</p>
+  <div class="grid2">
+    <div class="card" style="border-top:4px solid var(--terra)">
+      <h4 style="margin-top:0">Lei Eusébio de Queirós</h4>
+      <ul class="clean">
+        <li>Proibiu o <strong>tráfico transatlântico</strong> de africanos escravizados.</li>
+        <li>Resultado: <strong>encarecimento da mão de obra escravizada</strong> (menos oferta → preço sobe).</li>
+        <li>Sinal de <strong>fim iminente do modelo colonial de trabalho</strong>.</li>
+      </ul>
+    </div>
+    <div class="card" style="border-top:4px solid var(--green)">
+      <h4 style="margin-top:0">Lei de Terras</h4>
+      <ul class="clean">
+        <li>Acesso às <strong>terras devolutas apenas por compra</strong>.</li>
+        <li><strong>Bloqueou o acesso à terra</strong> para imigrantes pobres, libertos e posseiros.</li>
+        <li><strong>Proteção do latifúndio.</strong></li>
+      </ul>
+    </div>
+  </div>
+  <div class="box key"><span class="t">A solução da elite agrária (slide)</span>
+    <p><strong>Subvencionar a imigração europeia.</strong> Sem acesso à terra, o imigrante seria obrigado a vender sua força de trabalho nas fazendas de café.</p>
+  </div>
+  <pre class="scheme">
+  LEI EUSÉBIO DE QUEIRÓS (1850)                 LEI DE TERRAS (1850)
+  fim do tráfico                                terra só por COMPRA
+        │                                              │
+        ▼                                              ▼
+  escravizado fica caro e escasso        pobre, liberto e imigrante NÃO viram donos
+        │                                              │
+        └──────────────┐              ┌────────────────┘
+                       ▼              ▼
+          CAFÉ EM EXPANSÃO precisa de braços baratos
+                             │
+                             ▼
+     O Estado e os fazendeiros PAGAM a viagem do europeu (imigração subvencionada)
+                             │
+                             ▼
+     Sem terra própria, o imigrante trabalha na fazenda de outro (colono)
+  </pre>
+  <div class="box comp"><span class="t">Complemento para melhor compreensão</span>
+    <ul>
+      <li><strong>Terras devolutas:</strong> terras públicas sem uso oficial e sem dono registrado.</li>
+      <li><strong>Imigração subvencionada:</strong> o governo (principalmente o de São Paulo) e os fazendeiros pagavam as passagens. O imigrante chegava sem dinheiro e ia direto para a fazenda.</li>
+      <li>A escravidão só termina de vez em <strong>1888 (Lei Áurea)</strong>. As leis de 1850 prepararam a transição com quase 40 anos de antecedência.</li>
+      <li>As primeiras experiências (o sistema de <strong>parceria</strong>, em que o imigrante chegava endividado) geraram conflitos. Elas deram lugar ao <strong>colonato</strong>: salário anual pelo trato do cafezal, mais o direito de plantar alimentos.</li>
+    </ul>
+  </div>
+  <div class="box warn"><span class="t">Pegadinha</span><p>A Lei de Terras <strong>não distribuiu</strong> terras; ela <strong>dificultou</strong> o acesso. Toda alternativa dizendo que ela “facilitou o acesso do imigrante à propriedade” está errada. O objetivo era justamente manter o imigrante <strong>sem terra</strong>, disponível como mão de obra.</p></div>
+
+  <h3>2.2 O motor econômico: do campo à cidade</h3>
+  <p>O slide mostra uma cadeia de três etapas: o café gera capital, o capital cria a estrutura urbana, e a cidade vira o destino da indústria.</p>
+  <div class="flow">
+    <div class="st"><b>Economia cafeeira (o capital)</b>Avanço pelo Sudeste (Vale do Paraíba → Oeste Paulista). Acúmulo de riqueza e construção de infraestrutura: ferrovias e Porto de Santos.</div>
+    <div class="ar">→</div>
+    <div class="st"><b>Urbanização (a estrutura)</b>Surgem hospedarias de imigrantes (ex.: Brás), comércio forte, bancos e pequenos ofícios. Explosão demográfica urbana em São Paulo.</div>
+    <div class="ar">→</div>
+    <div class="st"><b>Industrialização (o destino)</b>O capital do café financia as primeiras fábricas. Os imigrantes formam a base da <strong>nova classe operária</strong> e do <strong>mercado consumidor</strong>.</div>
+  </div>
+  <div class="box comp"><span class="t">Complemento para melhor compreensão</span>
+    <p>A <strong>Hospedaria de Imigrantes do Brás</strong> (1887) recebia os recém-chegados vindos de trem do Porto de Santos, antes de serem enviados às fazendas. Hoje ela abriga o Museu da Imigração. E como muitos operários italianos e espanhóis traziam ideias anarquistas e socialistas da Europa, eles tiveram papel central nas primeiras grandes greves, como a <strong>Greve Geral de 1917</strong> em São Paulo. Isso ajuda a entender o medo das elites que aparece depois, nas cotas de 1934.</p>
+  </div>
+
+  <h3>2.3 A grande onda imigratória (1870–1953)</h3>
+  <div class="stats">
+    <div class="stat"><div class="n">4.875.040</div><div class="l">imigrantes registrados (1870–1953)</div></div>
+    <div class="stat"><div class="n">1880–1930</div><div class="l">pico de chegadas</div></div>
+    <div class="stat"><div class="n">Sul–Sudeste</div><div class="l">eixo onde se concentraram</div></div>
+  </div>
+  <p>Frase-síntese do slide: <strong>“Um projeto demográfico que alterou profundamente a estrutura étnica e produtiva, concentrando-se no eixo Sul-Sudeste.”</strong></p>
+
+  <h4>Quem veio e o que fez: o mapa do slide</h4>
+  <div class="tw"><table>
+    <tr><th>Grupo</th><th>O que o slide destaca</th><th>Como entender</th></tr>
+    <tr><td><strong>Italianos</strong></td><td>Maior volume inicial (substituição no café)</td><td>Foram os principais “braços” das fazendas paulistas após 1850/1888.</td></tr>
+    <tr><td><strong>Portugueses</strong></td><td>Fluxo constante, forte presença comercial urbana</td><td>Mesma língua; vieram em todas as épocas e se fixaram muito nas cidades (comércio).</td></tr>
+    <tr><td><strong>Espanhóis</strong></td><td>Focados no interior paulista</td><td>Também foram para o café. <span class="tag">o slide escreve “Fecados”, provável erro de digitação de “Focados”</span></td></tr>
+    <tr><td><strong>Alemães</strong></td><td>Colonização de povoamento na Região Sul</td><td>Pequenas propriedades familiares, não fazendas de café.</td></tr>
+    <tr><td><strong>Japoneses</strong></td><td>Forte entrada no século XX (aprox. 165 mil até 1953)</td><td>Chegam a partir de 1908; lavoura de café e, depois, agricultura em SP e PR.</td></tr>
+  </table></div>
+
+  <div class="box exam"><span class="t">Cai em prova: dois modelos de imigração</span>
+    <div class="tw" style="margin:8px 0 0"><table>
+      <tr><th></th><th>Substituição de mão de obra</th><th>Colonização de povoamento</th></tr>
+      <tr><td><strong>Onde</strong></td><td>São Paulo (fazendas de café)</td><td>Região Sul (RS, SC, PR)</td></tr>
+      <tr><td><strong>Quem</strong></td><td>Principalmente italianos e espanhóis</td><td>Principalmente alemães e italianos</td></tr>
+      <tr><td><strong>Terra</strong></td><td>Imigrante <strong>sem terra</strong>, trabalhando na fazenda alheia</td><td>Imigrante recebe/compra <strong>pequeno lote</strong> (núcleos coloniais)</td></tr>
+      <tr><td><strong>Objetivo do Estado</strong></td><td>Garantir braços para o café</td><td>Ocupar e proteger a fronteira sul, produzir alimentos</td></tr>
+    </table></div>
+    <p style="margin-top:10px"><em>Complemento:</em> a colonização alemã no Sul começa bem antes da grande onda, com São Leopoldo (RS) em 1824. O primeiro navio de imigrantes japoneses, o <strong>Kasato Maru</strong>, chegou a Santos em 1908.</p>
+  </div>
+
+  <h4>Os números por nacionalidade (1870–1953)</h4>
+  <div class="chart">
+    <div class="ct">Imigração para o Brasil por nacionalidade, 1870–1953</div>
+    <div class="cs">Fonte citada no slide: Memorial do Imigrante (geografiaparatodos.com.br). Total: 4.875.040.</div>
+    <div class="hbars" data-items='[["Italianos",1565835,""],["Portugueses",1470687,""],["Diversos",674318,"c"],["Espanhóis",644469,""],["Alemães",210825,"g"],["Japoneses",190282,"g"],["Russos",118624,"g"]]'></div>
+  </div>
+  <div class="chart">
+    <div class="ct">Imigração para o Brasil segundo a nacionalidade (gráfico de pizza do slide)</div>
+    <div class="cs">O slide não informa o período coberto por este gráfico.</div>
+    <div class="hbars" data-pct="1" data-items='[["Portugueses",31.06,""],["Italianos",29.9,""],["Outros",17.1,"c"],["Espanhóis",12.9,""],["Alemães",4.87,"g"],["Japoneses",4.17,"g"]]'></div>
+  </div>
+  <div class="box doubt"><span class="t">Os dois gráficos parecem se contradizer</span>
+    <p>No gráfico de barras (1870–1953), os <strong>italianos</strong> lideram (1.565.835, cerca de 32% do total). No de pizza, os <strong>portugueses</strong> lideram (31,06%). A explicação mais provável é que o gráfico de pizza cobre um <strong>período mais longo</strong> (incluindo décadas antes de 1870 e depois de 1953, quando o fluxo português continuou forte e o italiano já tinha caído). Isso bate com o próprio slide do mapa: portugueses têm “fluxo constante”, e italianos, “maior volume <em>inicial</em>”.</p>
+    <p>Da mesma forma, o slide do mapa fala em “aprox. 165 mil” japoneses até 1953, mas o gráfico de barras registra 190.282. São fontes e recortes diferentes. <strong>Na prova, sempre use o número do gráfico que a questão apresentar</strong> e preste atenção ao período.</p>
+  </div>
+
+  <h4>A imigração ao longo do tempo (1820–1975)</h4>
+  <div class="chart">
+    <div class="ct">Imigração no Brasil por década, 1820–1975</div>
+    <div class="cs">Valores <strong>aproximados</strong>, lidos da altura das barras do gráfico do slide (que não traz os números escritos).</div>
+    <div class="vcols" data-fmt="k" data-items='[["1820",40000],["1830",20000],["1840",25000],["1850",110000],["1860",110000],["1870",180000],["1880",450000],["1890",1200000],["1900",640000],["1910",830000],["1920",860000],["1930",320000],["1940",120000],["1950",580000],["1960",190000],["1970",60000]]'></div>
+    <div class="cs" style="margin-top:8px">Cada barra = uma década (ex.: “1890” = 1890–1899; a última é 1970–1975).</div>
+  </div>
+  <p><strong>Como ler este gráfico (passo a passo):</strong></p>
+  <ol>
+    <li><strong>Até 1850:</strong> quase nada, porque o trabalho ainda era escravizado e o tráfico funcionava.</li>
+    <li><strong>1850–1880:</strong> crescimento lento. O tráfico acabou, mas a escravidão ainda existia.</li>
+    <li><strong>1890–1899: o pico absoluto (cerca de 1,2 milhão).</strong> Logo depois da Abolição (1888), com o café em auge e a imigração subvencionada no máximo.</li>
+    <li><strong>1900–1929:</strong> fluxo alto, mas oscilando (a 1ª Guerra Mundial, 1914–1918, atrapalhou a travessia).</li>
+    <li><strong>1930–1949: queda brusca.</strong> Crise de 1929 (o café desaba), Lei de Cotas de 1934 e 2ª Guerra Mundial.</li>
+    <li><strong>1950–1959:</strong> pequena retomada no pós-guerra (europeus fugindo da destruição).</li>
+    <li><strong>Depois de 1960:</strong> o Brasil deixa de ser um grande destino.</li>
+  </ol>
+  <div class="box warn"><span class="t">Pegadinha</span><p>O pico de <strong>1890–1899</strong> é <strong>posterior à Abolição</strong>. Não diga que “a imigração começou com a Abolição”: ela já crescia desde 1850. O que a Abolição fez foi <strong>acelerar</strong> o fluxo.</p></div>
+
+  <h3>2.4 Por que os europeus vieram? Repulsão lá, atração aqui</h3>
+  <p>Esta tabela organiza os motivos que aparecem na <strong>resposta esperada da questão da UFPR</strong>, que está no material do professor:</p>
+  <div class="tw"><table>
+    <tr><th>Repulsão (Europa)</th><th>Atração / política (Brasil)</th></tr>
+    <tr><td>Crises econômicas e sociais: pobreza rural, concentração fundiária, desemprego causado pela industrialização</td><td>Substituição da mão de obra escravizada (fim do tráfico em 1850; Abolição em 1888)</td></tr>
+    <tr><td>Conflitos políticos, perseguições e instabilidade: unificação italiana, 1ª Guerra Mundial</td><td>Políticas de incentivo do Estado e dos cafeicultores (imigração subvencionada)</td></tr>
+    <tr><td></td><td>Ideologia do <strong>“branqueamento”</strong>: racismo científico, eugenia e darwinismo social nas elites, que levaram o poder público a <strong>favorecer europeus</strong></td></tr>
+    <tr><td></td><td>Colonização e ocupação do território, sobretudo no Sul, para evitar invasões e proteger as fronteiras</td></tr>
+  </table></div>
+  <div class="box exam"><span class="t">Cai em prova</span><p>A banca adora o motivo <strong>ideológico</strong>, não só o econômico. Se a questão pede “motivos para a preferência por europeus”, cite o <strong>projeto de branqueamento</strong> ao lado da substituição da mão de obra. Quem escreve só “faltava mão de obra” não explica por que o Brasil não estimulou, por exemplo, a imigração africana livre ou o trabalho assalariado dos libertos.</p></div>
+
+  <h3>2.5 1934: a Lei de Cotas e o Estado interventor</h3>
+  <div class="card" style="border-left:5px solid var(--terra)">
+    <p><strong>O contexto:</strong> Governo Getúlio Vargas, crise de 1929, projeto nacional-desenvolvimentista.</p>
+    <p><strong>A regra (limite de 2%):</strong> a Constituição de 1934 limitou a entrada anual de imigrantes de cada país a <strong>2% do total de nacionais daquele país fixados no Brasil nos últimos 50 anos</strong>. Segundo o slide, os portugueses eram isentos.</p>
+    <p><strong>A Lei dos 2/3 (1930):</strong> exigência de que as empresas tivessem no mínimo <strong>66% (dois terços)</strong> de trabalhadores <strong>brasileiros natos</strong>.</p>
+    <p><strong>O objetivo:</strong> nacionalizar o mercado de trabalho, proteger a indústria contra o desemprego e exercer <strong>controle racial/ideológico</strong> sobre quem entrava no país.</p>
+  </div>
+  <h4>Como a regra dos 2% funciona na prática</h4>
+  <pre class="scheme">
+  Cota anual de um país  =  2% × (nacionais desse país que entraram no Brasil nos últimos 50 anos)
+
+  Exemplo hipotético:
+    • País A enviou 1.000.000 de imigrantes nos últimos 50 anos → cota = 20.000 por ano
+    • País B enviou   100.000 imigrantes nos últimos 50 anos → cota =  2.000 por ano
+
+  Conclusão: a regra FAVORECE grupos antigos e numerosos
+             e PENALIZA fluxos recentes e em crescimento.
+  </pre>
+  <div class="box comp"><span class="t">Complemento para melhor compreensão</span>
+    <p>Por essa lógica, o grupo mais atingido foi o dos <strong>japoneses</strong>: um fluxo recente (desde 1908) e em forte crescimento na época. Os debates da Constituinte de 1934 estavam carregados de ideias eugenistas e de desconfiança contra os asiáticos. Isso confirma o “controle racial” citado no slide. O “controle ideológico” mirava os operários estrangeiros associados ao anarquismo e ao comunismo.</p>
+  </div>
+  <div class="box warn"><span class="t">Pegadinha</span><p>A Lei de Cotas <strong>limitou</strong> a imigração, mas <strong>não a proibiu</strong>. E a “Lei dos 2/3” trata da <strong>composição da mão de obra nas empresas</strong>, não da entrada no país. São duas medidas diferentes com o mesmo espírito nacionalista.</p></div>
+
+  <h3>2.6 A virada no regime migratório</h3>
+  <div class="tw"><table>
+    <tr><th></th><th style="background:var(--terra-soft)">Antes de 1930 · <em>a porta aberta</em></th><th style="background:var(--bg2)">Depois de 1930 · <em>a porta vigiada</em></th></tr>
+    <tr><td><strong>Foco econômico</strong></td><td>Agrícola (economia cafeeira)</td><td>Urbano-industrial (nacionalismo econômico)</td></tr>
+    <tr><td><strong>Papel do Estado</strong></td><td>Subvenção e estímulo direto à chegada</td><td>Cotas, seleção, restrição e controle de fronteiras</td></tr>
+    <tr><td><strong>Visão sobre o imigrante</strong></td><td>Braços para a lavoura; trabalhador altamente desejado pela elite</td><td>Concorrente em potencial; imigração politizada sob a ótica da <strong>assimilação obrigatória</strong></td></tr>
+  </table></div>
+  <div class="box comp"><span class="t">Complemento para melhor compreensão</span><p><strong>Assimilação obrigatória</strong> quer dizer forçar o imigrante a abandonar sua cultura de origem e “virar brasileiro”. No Estado Novo (1937–1945), por exemplo, escolas estrangeiras foram fechadas e o uso público de alemão, italiano e japonês foi proibido, sobretudo durante a 2ª Guerra.</p></div>
+  <div class="box key"><span class="t">E a migração interna entra aqui</span><p>Com a “porta vigiada” para os estrangeiros, a indústria do Sudeste passa a buscar trabalhadores <strong>dentro do país</strong>. É exatamente aí que começa o <strong>Módulo 3</strong>: o grande fluxo Nordeste → Sudeste (1930–1950).</p></div>
+
+  <h3>2.7 Síntese: a engenharia demográfica do Brasil</h3>
+  <div class="grid2">
+    <div class="card"><h4 style="margin-top:0">Demografia hoje</h4><p>População em transição: base estreitando, envelhecimento acelerado (213 milhões+ de habitantes).</p></div>
+    <div class="card"><h4 style="margin-top:0">Identidade e povo</h4><p>Mosaico forjado na desigualdade: indígenas, africanos e europeus formam o povo brasileiro.</p></div>
+    <div class="card"><h4 style="margin-top:0">Estrutura (1850)</h4><p>As leis de 1850 substituíram o trabalho escravizado pelo imigrante, mantendo a terra concentrada.</p></div>
+    <div class="card"><h4 style="margin-top:0">O Estado (anos 1930)</h4><p>Vargas, indústria urbana e Lei de Cotas: a imigração passa a ser rigidamente controlada.</p></div>
+  </div>
+  <p class="mono" style="color:var(--ink2)">Exercícios propostos pelo professor: Livro 04 · Cap. 02 [Consolidando Saberes] · pág. 49–53 · questões 01, 02, 06 e 07. <em>(As questões do livro não estão nos slides enviados, por isso não foram resolvidas aqui.)</em></p>
+
+  <p><a class="vmini" href="https://www.youtube.com/watch?v=2skEPARnorI" target="_blank" rel="noopener">▶ Contexto histórico: O Segundo Reinado (Débora Aladim)</a><a class="vmini" href="https://www.youtube.com/watch?v=JmetD8M5SeM" target="_blank" rel="noopener">▶ Migrações no Brasil: aula completa (Prof. JeanGrafia)</a></p>
+</section>
+
+<!-- ============ MÓDULO 3 ============ -->
+<section class="block" id="m3">
+  <div class="modhead"><div class="modnum">3</div><div><div class="kicker">Explicação completa · Módulo 3</div><h2>Migrações internas (séculos XX e XXI)</h2></div></div>
+  <p class="lead">A regra de ouro deste módulo: <strong>cada fase migratória acompanha uma fase da economia</strong>. Mudou o centro dinâmico da economia, mudou a direção das setas no mapa.</p>
+
+  <pre class="scheme">
+  FASE           DE ONDE                →  PARA ONDE              POR QUÊ (motor)
+  ─────────────  ─────────────────────     ───────────────────── ─────────────────────────────────
+  1930–1950      Nordeste               →  Sudeste                industrialização (Era Vargas)
+  1950–1970      Sul + Nordeste         →  Centro-Oeste + Norte   fronteira agrícola, Brasília, rodovias
+  1970–1990      campo (todo o país)    →  cidades                mecanização + concentração de terras
+  pós-1990/2000  Sudeste                →  Nordeste (retorno)     saturação metropolitana, economia do NE
+                 metrópoles             →  cidades médias         guerra fiscal, desconcentração
+  pós-pandemia   capitais               →  pequenas/médias        home office, qualidade de vida
+  </pre>
+
+  <h3>3.1 1930–1950: Nordeste → Sudeste</h3>
+  <div class="grid2">
+    <div class="card" style="border-top:4px solid var(--terra)">
+      <h4 style="margin-top:0">Origem: Nordeste, perda histórica de população</h4>
+      <ul class="clean">
+        <li>O Nordeste já “exportava” gente antes: [séc. XIX] para o <strong>Ciclo da Borracha</strong> no Norte; [séc. XIX/XX] para o <strong>café</strong>.</li>
+        <li><strong>Concentração fundiária</strong> e as <strong>constantes secas</strong> em parte da região.</li>
+        <li><span class="hl"><strong>1940–1980: saída de 13 milhões de pessoas.</strong></span></li>
+      </ul>
+    </div>
+    <div class="card" style="border-top:4px solid var(--green)">
+      <h4 style="margin-top:0">Destino: Sudeste, processo de industrialização (Era Vargas)</h4>
+      <ul class="clean">
+        <li><strong>Substituição de importações:</strong> demanda por mão de obra + criação da <strong>CLT</strong>.</li>
+        <li><strong>Projeto nacional-desenvolvimentista.</strong></li>
+      </ul>
+    </div>
+  </div>
+  <div class="chart">
+    <div class="ct">O salto da urbanização (dados do slide)</div>
+    <div class="cs">Percentual da população brasileira vivendo em cidades</div>
+    <div class="vcols" data-fmt="pct" data-items='[["1940",31],["1950",36],["1960",45]]'></div>
+  </div>
+  <div class="box comp"><span class="t">Complemento para melhor compreensão</span>
+    <ul>
+      <li><strong>Substituição de importações:</strong> o país passa a produzir internamente o que antes comprava do exterior. Depois da crise de 1929, faltavam divisas para importar, e a indústria nacional ganhou espaço. As fábricas se concentraram no Sudeste (sobretudo em São Paulo), onde já havia capital do café, ferrovias, porto e mercado consumidor.</li>
+      <li><strong>CLT (1943):</strong> a Consolidação das Leis do Trabalho garantiu direitos (salário mínimo, férias, carteira assinada) aos trabalhadores <strong>urbanos</strong>, mas <strong>não</strong> aos rurais. Resultado: a cidade virou símbolo de direitos, e isso atraiu migrantes do campo.</li>
+      <li>Muitos viajavam em caminhões improvisados, os “paus de arara”. A mão de obra nordestina também foi decisiva na construção civil das metrópoles do Sudeste e, depois, de Brasília.</li>
+    </ul>
+  </div>
+
+  <h3>3.2 1950–1970: Sul e Nordeste → Centro-Oeste e Norte</h3>
+  <div class="card">
+    <h4 style="margin-top:0">Origem: Sul e Nordeste, em busca de novas frentes de trabalho e produção</h4>
+    <ul class="clean">
+      <li>Expansão da <strong>fronteira agrícola</strong> + <strong>Revolução Verde</strong> (1960).</li>
+      <li>[Militares] estímulo à ocupação do território: <strong>doação/venda de terras devolutas</strong>.</li>
+      <li><strong>Construção de Brasília (1960):</strong> transferência da capital nacional.</li>
+      <li><strong>Integração do território pelas RODOVIAS</strong>, com Brasília como marco e referência.</li>
+    </ul>
+    <p><strong>Destino:</strong> Centro-Oeste e Norte, com <strong>êxodo rural e aumento da urbanização</strong>.</p>
+    <p style="font-size:.9rem;color:var(--ink2)">Os mapas do slide (1950/1960 e 1960/1970) mostram setas saindo do Nordeste e do Sul em direção ao interior (Goiás, Mato Grosso, Brasília) e à Amazônia.</p>
+  </div>
+  <div class="box comp"><span class="t">Complemento para melhor compreensão</span>
+    <ul>
+      <li><strong>Fronteira agrícola:</strong> a “linha” que separa as áreas já ocupadas pela agropecuária moderna das ainda não ocupadas. Ela avançou do Sul/Sudeste para o Cerrado (Centro-Oeste) e depois para a Amazônia.</li>
+      <li><strong>Revolução Verde:</strong> pacote de modernização agrícola com sementes selecionadas, fertilizantes, agrotóxicos e máquinas. Aumentou a produtividade, mas favoreceu grandes produtores e <strong>expulsou</strong> pequenos agricultores, que migraram.</li>
+      <li><strong>Militares:</strong> o regime militar começou em <strong>1964</strong>, então a parte “militar” desta fase se estende pelo período seguinte. O lema era “<em>integrar para não entregar</em>”: ocupar a Amazônia para garantir a soberania. Exemplos: Belém–Brasília e Transamazônica (anos 1970), projetos de colonização em Rondônia e no Mato Grosso, onde chegaram muitos gaúchos, paranaenses e catarinenses.</li>
+    </ul>
+  </div>
+  <div class="box warn"><span class="t">Aparente contradição</span><p>O slide diz que o destino foi o Centro-Oeste e Norte “com <strong>êxodo rural</strong> e aumento da urbanização”. Como assim, se muita gente foi para o <em>campo</em> da fronteira? A resposta é que a fronteira se urbanizou muito rápido: surgiram cidades de apoio ao agronegócio e Brasília, e boa parte dos que não conseguiram terra acabou nas cidades da própria região. A modernização do Sul também expulsava gente do campo (êxodo rural na origem).</p></div>
+
+  <h3>3.3 1970–1990: expansão da urbanização e ampliação do êxodo rural</h3>
+  <ul class="clean">
+    <li><strong>Mecanização do campo / concentração de terras</strong> (repulsão) × <strong>oferta de trabalho e acesso à infraestrutura</strong> nas cidades (atração).</li>
+    <li><strong>Expansão e integração gradativa dos sistemas de transporte</strong>, o que facilitou migrar.</li>
+  </ul>
+  <div class="chart">
+    <div class="ct">População total do Brasil (milhões), dados do gráfico do slide</div>
+    <div class="cs">Fonte citada: IBGE, 2010 (via beefpoint.com.br). O gráfico original também traz as curvas “urbana” e “rural” em %.</div>
+    <div class="vcols" data-fmt="dec" data-items='[["1950",51.9],["1960",70.1],["1970",93.1],["1980",119.0],["1991",146.8],["2000",169.8],["2010",190.8]]'></div>
+  </div>
+  <div class="box doubt"><span class="t">Leitura do gráfico</span><p>No gráfico, a curva <strong>urbana</strong> sobe e a <strong>rural</strong> desce, e elas se <strong>cruzam por volta de 1965–1970</strong>. A partir daí, o Brasil passa a ter mais gente na cidade do que no campo. Os percentuais exatos das curvas não estão escritos no slide.</p></div>
+  <div class="box comp"><span class="t">Complemento para melhor compreensão: taxas de urbanização (IBGE)</span>
+    <div class="tw" style="margin:6px 0 0"><table>
+      <tr><th>Ano</th><th class="num">1950</th><th class="num">1960</th><th class="num">1970</th><th class="num">1980</th><th class="num">1991</th><th class="num">2000</th><th class="num">2010</th></tr>
+      <tr><td>% urbana (aprox.)</td><td class="num">36</td><td class="num">45</td><td class="num">56</td><td class="num">68</td><td class="num">75</td><td class="num">81</td><td class="num">84</td></tr>
+    </table></div>
+    <p style="margin-top:8px">O Censo de 1970 foi o primeiro a registrar população urbana maior que a rural. A urbanização brasileira foi <strong>rápida e concentrada</strong>, sem planejamento suficiente: daí o crescimento de favelas e periferias.</p>
+  </div>
+
+  <h3>3.4 Pós-1990/2000: reestruturação territorial</h3>
+  <ul class="clean">
+    <li><strong>Diminuição das migrações inter-regionais</strong> (entre grandes regiões).</li>
+    <li>Destaques: <strong>migração de retorno</strong> (Sudeste → Nordeste) e <strong>migrações intrarregionais</strong> (dentro de uma mesma região).</li>
+  </ul>
+
+  <h4>Por que o retorno? A melhora do IDHM</h4>
+  <p>O slide traz três mapas do IDHM (Índice de Desenvolvimento Humano Municipal) do Brasil:</p>
+  <div class="tw"><table>
+    <tr><th>Ano</th><th class="num">IDHM do Brasil</th><th>Menor índice</th><th>Maior índice</th></tr>
+    <tr><td>1991</td><td class="num">0,493</td><td>Caraúbas do Piauí (PI) · 0,120 <span class="tag">legibilidade baixa</span></td><td>São Caetano do Sul (SP) · 0,697</td></tr>
+    <tr><td>2000</td><td class="num">0,612</td><td>Aroeiras do Itaim (PI) · 0,208</td><td>São Caetano do Sul (SP) · 0,820</td></tr>
+    <tr><td>2010</td><td class="num">0,727</td><td>Melgaço (PA) · 0,418</td><td>São Caetano do Sul (SP) · 0,862</td></tr>
+  </table></div>
+  <div class="tw"><table>
+    <tr><th>% de municípios por faixa do IDHM</th><th class="num">1991</th><th class="num">2000</th><th class="num">2010</th></tr>
+    <tr><td>Muito baixo (0 a 0,499)</td><td class="num">85,8%</td><td class="num">41,8%</td><td class="num">0,6%</td></tr>
+    <tr><td>Baixo (0,500 a 0,599)</td><td class="num">13,4%</td><td class="num">29,7%</td><td class="num">24,6%</td></tr>
+    <tr><td>Médio (0,600 a 0,699)</td><td class="num">0,8%</td><td class="num">26,1%</td><td class="num">40,1%</td></tr>
+    <tr><td>Alto (0,700 a 0,799)</td><td class="num">—</td><td class="num">2,4%</td><td class="num">33,9%</td></tr>
+    <tr><td>Muito alto (0,800 a 1)</td><td class="num">—</td><td class="num">—</td><td class="num">0,8%</td></tr>
+  </table></div>
+  <div class="box doubt"><span class="t">Leitura dos gráficos</span><p>Os valores das faixas foram lidos dos gráficos semicirculares do slide (alguns rótulos são pequenos). A soma de 2010 fecha em 100%. Em 2000 aparece cerca de 99,9% por arredondamento. Os nomes dos municípios de menor índice em 1991/2000 estão em letra muito pequena; o de 2010 (Melgaço, PA) está nítido.</p></div>
+  <p><strong>Como interpretar:</strong> em 1991, o mapa era quase todo vermelho (85,8% dos municípios com IDHM muito baixo). Em 2010, o vermelho praticamente sumiu. <strong>O Nordeste melhorou muito</strong>, e é isso que torna possível a migração de retorno: a região que antes expulsava passou a oferecer condições mínimas para quem quer voltar.</p>
+
+  <h4>Migração em queda: o saldo migratório de cada estado (2004–2009)</h4>
+  <p>O infográfico do slide mostra, para cada estado, se chegou mais gente do que saiu (saldo <strong>positivo</strong>, em azul) ou o contrário (saldo <strong>negativo</strong>, em rosa).</p>
+  <div class="chart">
+    <div class="ct">Saldo migratório por estado, 2004–2009</div>
+    <div class="cs">Barras verdes = ganhou população por migração; barras vermelhas = perdeu.</div>
+    <div class="sbars" data-items='[["GO",129056],["SC",80488],["ES",52747],["PR",31745],["AM",27508],["RN",23135],["MG",12177],["DF",11866],["AP",8914],["MS",7695],["PB",3374],["RO",2403],["SE",1163],["RR",676],["AC",33],["CE",-4333],["PE",-6565],["MT",-12027],["RS",-13380],["RJ",-24063],["MA",-29472],["PI",-30024],["TO",-32425],["AL",-36821],["PA",-41908],["SP",-53276],["BA",-108326]]'></div>
+  </div>
+  <div class="grid2">
+    <div class="box key"><span class="t">Destaques do infográfico</span><ul>
+      <li><strong>Goiás:</strong> +129.056, o <strong>maior saldo migratório</strong> do país.</li>
+      <li><strong>Bahia:</strong> −108.326, o <strong>maior déficit migratório</strong> do país.</li>
+      <li><strong>São Paulo: −53.276</strong>, saldo <strong>negativo</strong>!</li>
+    </ul></div>
+    <div class="box exam"><span class="t">Fluxos entre NE e SE (infográfico)</span>
+      <div class="tw" style="margin:4px 0 0"><table>
+        <tr><th>Período</th><th class="num">NE → SE</th><th class="num">SE → NE</th></tr>
+        <tr><td>1995–2000</td><td class="num">969.435</td><td class="num">462.628</td></tr>
+        <tr><td>1999–2004</td><td class="num">548.513</td><td class="num"><strong>620.334</strong></td></tr>
+        <tr><td>2004–2009</td><td class="num">443.962</td><td class="num">319.448</td></tr>
+      </table></div>
+    </div>
+  </div>
+  <div class="box warn"><span class="t">Pegadinhas deste infográfico</span>
+    <ul>
+      <li>Em <strong>1999–2004</strong>, o fluxo <strong>SE → NE (620.334) superou o NE → SE (548.513)</strong>. É a prova numérica da migração de retorno.</li>
+      <li>Os <strong>dois</strong> fluxos caem entre 1995 e 2009: é o título “<strong>Migração em queda</strong>”. Menos gente está cruzando grandes distâncias.</li>
+      <li>SP com saldo negativo <strong>não significa que SP perdeu população</strong>. Saldo migratório só compara entradas e saídas de migrantes; o crescimento natural (nascimentos − óbitos) continua. E SP segue sendo o estado que mais recebe migrantes em números absolutos: ele só passou a perder mais do que ganha.</li>
+    </ul>
+  </div>
+
+  <h4>Reestruturação e migração de retorno (slide-síntese)</h4>
+  <div class="grid2">
+    <div class="card" style="border-top:4px solid var(--terra)">
+      <h4 style="margin-top:0">A. Migração de retorno (SE → NE)</h4>
+      <p><strong>Repulsão</strong> (Sudeste): saturação metropolitana, desemprego estrutural, alto custo de vida.</p>
+      <p><strong>Atração</strong> (Nordeste): dinamização econômica local, polos de irrigação, transferência de renda e laços familiares.</p>
+      <p style="font-size:.88rem;color:var(--ink2)">O mapa do slide mostra setas de ida e volta entre São Paulo/Rio de Janeiro e o Nordeste.</p>
+    </div>
+    <div class="card" style="border-top:4px solid var(--blue)">
+      <h4 style="margin-top:0">B. Consolidação intrarregional</h4>
+      <p>Gráfico do slide: <strong>crescimento acelerado das cidades médias</strong> × <strong>estagnação das metrópoles tradicionais</strong>.</p>
+      <ul class="clean">
+        <li>A <strong>guerra fiscal</strong> causa a desconcentração industrial para o interior dos estados.</li>
+        <li><strong>Queda drástica</strong> da migração inter-regional de longa distância.</li>
+        <li><strong>Ascensão demográfica e produtiva das cidades médias.</strong></li>
+      </ul>
+    </div>
+  </div>
+  <div class="box comp"><span class="t">Complemento para melhor compreensão</span>
+    <ul>
+      <li><strong>Guerra fiscal:</strong> disputa entre estados e municípios que oferecem isenção ou redução de impostos (principalmente o ICMS) e terrenos baratos para atrair fábricas. As indústrias saem da Grande São Paulo, onde terreno, salários e trânsito são caros, e vão para o interior ou para outros estados.</li>
+      <li><strong>Desemprego estrutural:</strong> desemprego causado por mudanças duradouras na economia (automação, fechamento de indústrias), e não por uma crise passageira.</li>
+      <li><strong>Polos de irrigação:</strong> o exemplo clássico é Petrolina (PE)–Juazeiro (BA), no Vale do São Francisco, grande produtor de frutas para exportação.</li>
+      <li><strong>Transferência de renda:</strong> programas como o Bolsa Família e a aposentadoria rural movimentam o comércio local e reduzem a necessidade de migrar.</li>
+      <li><strong>Cidades médias</strong> (em geral, de 100 mil a 500 mil habitantes) oferecem emprego e serviços com custo de vida menor e menos violência que as metrópoles.</li>
+    </ul>
+  </div>
+
+  <h3>3.5 Pós-pandemia: o êxodo urbano contemporâneo</h3>
+  <div class="grid3">
+    <div class="card"><h4 style="margin-top:0">Contraurbanização</h4><p>Deslocamento estratégico de populações das <strong>capitais</strong> para cidades de <strong>pequeno e médio porte</strong>.</p></div>
+    <div class="card"><h4 style="margin-top:0">Desterritorialização do trabalho</h4><p>Adoção estrutural do <strong>home office</strong> por profissionais de alta qualificação (tecnologia, finanças, gestão).</p></div>
+    <div class="card"><h4 style="margin-top:0">Motivadores</h4><p>Busca por qualidade de vida, segurança, infraestrutura ambiental e metros quadrados mais acessíveis.</p></div>
+  </div>
+  <div class="box comp"><span class="t">Complemento para melhor compreensão</span><p><strong>Desterritorializar o trabalho</strong> significa desligar o trabalho de um lugar físico: se o escritório está no computador, você pode morar em qualquer lugar com internet. O slide mostra isso com o ícone de Wi-Fi entre a metrópole e a cidade pequena.</p></div>
+  <div class="box warn"><span class="t">Pegadinha</span><p>Esse êxodo urbano é <strong>seletivo</strong>: atinge sobretudo trabalhadores <strong>qualificados e de maior renda</strong>, que podem trabalhar remotamente. Não é uma “volta em massa ao campo”, e o Brasil continua altamente urbanizado. Muitas pessoas trocam a capital por <strong>outra cidade</strong>, não pelo meio rural.</p></div>
+
+  <p><a class="vmini" href="https://www.youtube.com/watch?v=MjQGfbXP3Qs" target="_blank" rel="noopener">▶ Migrações internas (Brasil Escola)</a><a class="vmini" href="https://www.youtube.com/watch?v=cYFtCPn_Mzg" target="_blank" rel="noopener">▶ Fluxos migratórios no Brasil (Geo Ilustrada)</a></p>
+</section>
+
+<!-- ============ MÓDULO 4 ============ -->
+<section class="block" id="m4">
+  <div class="modhead"><div class="modnum">4</div><div><div class="kicker">Explicação completa · Módulo 4</div><h2>Novos fluxos migratórios e a reconstrução da identidade</h2></div></div>
+  <p class="lead">No século XXI, o Brasil volta a ser um destino importante, mas agora os imigrantes vêm majoritariamente do <strong>Sul Global</strong> (América Latina, África, Caribe e Ásia), e não mais da Europa.</p>
+  <div class="box comp"><span class="t">Complemento para melhor compreensão</span><p><strong>Norte Global × Sul Global</strong> é uma divisão socioeconômica, e não só geográfica: “Norte” são os países ricos e industrializados (EUA, Europa Ocidental, Japão, Austrália); “Sul” são os países em desenvolvimento, mesmo que estejam no hemisfério norte, como o Haiti. Migração <strong>Sul–Sul</strong> é a que ocorre entre países do Sul Global, como Venezuela → Brasil.</p></div>
+
+  <h3>4.1 Os novos imigrantes no Brasil</h3>
+  <div class="grid3">
+    <div class="card"><h4 style="margin-top:0">América do Sul</h4><p>Peruanos e bolivianos</p></div>
+    <div class="card"><h4 style="margin-top:0">África</h4><p>Angola, Congo, Libéria e Serra Leoa</p></div>
+    <div class="card"><h4 style="margin-top:0">Ásia</h4><p>Chineses e coreanos</p></div>
+  </div>
+  <div class="box key"><span class="t">Observação do slide</span><p>Muitos trabalhadores entraram no Brasil <strong>sem carteira assinada</strong>: <strong>servidão moderna</strong>.</p></div>
+  <div class="box comp"><span class="t">Complemento para melhor compreensão</span><p>O caso mais citado é o de <strong>bolivianos em oficinas de costura</strong> na cidade de São Paulo (bairros como Brás e Bom Retiro), com jornadas exaustivas, dívidas com o empregador (“pagar a passagem”) e moradia no local de trabalho. É o que a lei brasileira chama de <strong>trabalho análogo à escravidão</strong> (art. 149 do Código Penal). A vulnerabilidade aumenta quando o imigrante está sem documentos, porque tem medo de denunciar.</p></div>
+
+  <h3>4.2 Um Brasil cosmopolita: refugiados no país</h3>
+  <p>O infográfico “Um Brasil cosmopolita” mostra que refugiados e imigrantes chegam em fluxo contínuo e se espalham pelo país.</p>
+  <div class="grid2">
+    <div class="chart">
+      <div class="ct">Origem dos refugiados no Brasil (2000 – out/2014)</div>
+      <div class="cs">Números lidos dos círculos do infográfico</div>
+      <div class="hbars" data-items='[["Síria",1524,""],["Colômbia",1218,""],["Angola",1067,""],["R. D. Congo",784,""],["Líbano",391,"g"],["Palestina",263,"g"],["Libéria",258,"g"],["Iraque",229,"g"],["Bolívia",145,"g"],["Serra Leoa",137,"g"]]'></div>
+    </div>
+    <div class="chart">
+      <div class="ct">Refugiados no Brasil</div>
+      <div class="cs">Total no país × novos reconhecidos em cada ano</div>
+      <div class="tw" style="margin:0"><table>
+        <tr><th>Ano</th><th class="num">Total</th><th class="num">Novos reconhecidos</th></tr>
+        <tr><td>2010</td><td class="num">4.357</td><td class="num">150</td></tr>
+        <tr><td>2011</td><td class="num">4.477</td><td class="num">128</td></tr>
+        <tr><td>2012</td><td class="num">4.689</td><td class="num">260</td></tr>
+        <tr><td>2013</td><td class="num">5.256</td><td class="num">712</td></tr>
+        <tr><td>2014</td><td class="num">7.289</td><td class="num">2.032</td></tr>
+      </table></div>
+      <p style="font-size:.85rem;color:var(--ink2);margin-bottom:0">O mapa também mostra, em amarelo, a distribuição dos <strong>haitianos</strong> (2000–2014) pelos estados, com as maiores concentrações (2.501 a 5.000) no Sul e no Sudeste.</p>
+    </div>
+  </div>
+  <div class="box doubt"><span class="t">Atenção à leitura</span><p>A Síria lidera por causa da <strong>guerra civil iniciada em 2011</strong> (complemento). Repare que os <strong>haitianos não aparecem</strong> entre os refugiados: a maioria deles recebeu <strong>visto humanitário</strong>, não o status de refugiado, por isso o infográfico os mostra separadamente.</p></div>
+
+  <h3>4.3 Os haitianos: os caminhos de entrada</h3>
+  <p>O mapa “Os caminhos de entrada” mostra que, com o aumento do fluxo de haitianos, as rotas para o Brasil se diversificaram:</p>
+  <pre class="scheme">
+  HAITI (Porto Príncipe)
+     │  (alguns via Santo Domingo, na República Dominicana)
+     ▼
+  Cidade do Panamá ──► Quito (Equador) ──► Peru ──► Iñapari (fronteira)
+                                                        │
+                    ┌───────────────────────────────────┴───────────────────────┐
+                    ▼                                                           ▼
+     ACRE (Brasileia) ← PRINCIPAL ROTA                      AMAZONAS (Tabatinga → Manaus)
+                    │                                        ← rota dos PRIMEIROS haitianos
+                    └────────────► depois, MUITOS seguem para SÃO PAULO
+
+  Rota recente (no mapa): via Buenos Aires → Foz do Iguaçu (18 haitianos entraram por ali)
+  </pre>
+  <p>A foto do slide mostra haitianos esperando documentação numa praça de Brasileia, no Acre.</p>
+  <div class="box comp"><span class="t">Complemento para melhor compreensão: por que o Haiti e por que o Brasil?</span>
+    <ul>
+      <li><strong>Terremoto de janeiro de 2010</strong>, que destruiu Porto Príncipe e agravou a pobreza extrema (a resposta esperada da UFPR cita a “desestruturação social e econômica provocada pelo terremoto no Haiti”).</li>
+      <li>O Brasil <strong>comandou a missão de paz da ONU no Haiti</strong> (MINUSTAH, 2004–2017), o que criou laços e a imagem do Brasil como país acolhedor.</li>
+      <li>Em 2012, o Brasil criou o <strong>visto humanitário</strong> para haitianos.</li>
+      <li>Nos anos 2010, o Brasil vivia bom momento econômico e se preparava para a Copa de 2014 e as Olimpíadas de 2016, com obras que demandavam mão de obra.</li>
+      <li>Muitos chegavam por rotas terrestres controladas por <strong>coiotes</strong> (atravessadores), pagando caro e correndo riscos.</li>
+    </ul>
+  </div>
+
+  <h3>4.4 A crise migratória brasileira: a chegada dos venezuelanos</h3>
+  <div class="stats">
+    <div class="stat"><div class="n">50 mil</div><div class="l">venezuelanos entraram no Brasil em 2017/2018</div></div>
+    <div class="stat"><div class="n">400/dia</div><div class="l">pessoas entrando por Roraima</div></div>
+    <div class="stat"><div class="n">25 mil</div><div class="l">em Boa Vista: 8% da população local</div></div>
+  </div>
+  <ul class="clean">
+    <li><strong>Não havia infraestrutura:</strong> foi necessária a ajuda do <strong>Exército</strong> e do <strong>Acnur</strong> (Alto Comissariado das Nações Unidas para Refugiados).</li>
+    <li><strong>Resultado: sobrecarga dos sistemas públicos</strong>, como a saúde: de <strong>760 atendimentos (2014) para 15 mil (2017)</strong>, cerca de 20 vezes mais.</li>
+    <li><strong>Epidemia de sarampo</strong> (doença considerada erradicada desde 2001): vírus trazido da Venezuela, que se espalhou por <strong>falha na cobertura de vacinação</strong>.</li>
+  </ul>
+  <div class="box warn"><span class="t">Leitura crítica (muito cobrada em discursivas)</span><p>Repare no que o slide diz: o vírus veio de fora, mas a epidemia aconteceu por <strong>falha na cobertura de vacinação</strong> brasileira. Culpar “os imigrantes” pela epidemia é uma leitura <strong>xenófoba</strong> e incompleta. Com a população vacinada, o vírus não se espalharia. O mesmo raciocínio vale para a sobrecarga: o problema é a falta de estrutura para acolher um fluxo concentrado num estado pequeno e isolado (Roraima), e não a presença dos migrantes em si.</p></div>
+  <div class="box comp"><span class="t">Complemento para melhor compreensão: por que a Venezuela entrou em crise?</span><p>A economia venezuelana depende quase totalmente do <strong>petróleo</strong>. Com a forte queda do preço do barril a partir de 2014, somada a má gestão, controle de preços e crise política no governo de Nicolás Maduro, o país mergulhou em <strong>hiperinflação</strong>, desabastecimento de comida e remédios e repressão política. É uma das maiores crises de deslocamento do mundo recente.</p></div>
+
+  <h4>Para onde vão os venezuelanos?</h4>
+  <div class="chart">
+    <div class="ct">Aumento percentual de venezuelanos na população de cada país, 2015–2018</div>
+    <div class="cs">* até 2017 · ** até 2016. O Peru (+14.975%) foi omitido das barras para não achatar as demais.</div>
+    <div class="hbars" data-pct="1" data-items='[["Colômbia",1686,""],["Brasil",1359,"g"],["Chile",1221,""],["Panamá*",669,""],["Argentina",639,""],["Uruguai",363,""],["Equador*",344,""],["México*",104,"c"],["Costa Rica*",38,"c"],["Espanha*",26,"c"],["Canadá**",16,"c"],["EUA**",14,"c"],["Portugal*",2,"c"],["Itália*",2,"c"]]'></div>
+  </div>
+  <div class="box warn"><span class="t">Pegadinha: percentual ≠ número absoluto</span><p>O Brasil tem aumento de <strong>1.359%</strong>, maior que o do Chile, mas isso <strong>não</strong> quer dizer que recebeu mais venezuelanos que o Chile. O aumento percentual é enorme quando a base inicial é pequena: poucos venezuelanos viviam no Brasil em 2015. No mapa de bolhas do mesmo slide, as maiores bolhas (números absolutos) estão na <strong>Colômbia</strong> e no <strong>Peru</strong>, não no Brasil.</p></div>
+
+  <div class="card">
+    <h4 style="margin-top:0">O êxodo venezuelano (infográfico do G1, 20/08/2018)</h4>
+    <div class="tw" style="margin:6px 0 0"><table>
+      <tr><td><strong>Venezuela</strong></td><td>2,3 milhões deixaram o país segundo a ONU, o equivalente a 7% da população</td></tr>
+      <tr><td><strong>Colômbia</strong></td><td>442 mil venezuelanos em situação irregular (contagem de junho)</td></tr>
+      <tr><td><strong>Equador</strong></td><td>registrou a entrada de 547 mil de janeiro a julho</td></tr>
+      <tr><td><strong>Peru</strong></td><td>diz ter recebido 400 mil venezuelanos nos últimos meses</td></tr>
+      <tr><td><strong>Brasil</strong></td><td>128 mil cruzaram a fronteira em 18 meses</td></tr>
+    </table></div>
+    <p style="font-size:.9rem;margin-bottom:0"><strong>Complemento para melhor compreensão:</strong> o Brasil recebeu relativamente menos por causa da <strong>língua</strong> (espanhol nos vizinhos andinos), da <strong>barreira da floresta amazônica</strong> e da distância entre a fronteira (Roraima) e os grandes centros econômicos do país.</p>
+  </div>
+  <div class="box doubt"><span class="t">“Mapa 5” do slide</span><p>O slide mostra também um mapa de <strong>municípios de residência, na Amazônia brasileira, de migrantes nascidos na Venezuela</strong> (IBGE, Censo 2000; elaborado por Lira, 2010). Ele é de <strong>antes</strong> da crise e mostra que já havia um pequeno fluxo histórico, concentrado em Roraima, perto da fronteira. As faixas da legenda estão ilegíveis na resolução do arquivo.</p></div>
+
+  <h4>Quem é o imigrante venezuelano? Perfil sociodemográfico</h4>
+  <p>Pesquisa realizada entre junho e agosto de 2017 com <strong>650 imigrantes venezuelanos adultos, não indígenas, residentes em Boa Vista</strong> (Cátedra Sérgio Vieira de Mello/UFRR).</p>
+  <div class="grid3">
+    <div class="chart"><div class="ct">Idade (%)</div><div class="hbars" data-pct="1" data-items='[["18–19",2.9,""],["20–39",72,""],["40–64",23,""],["65 ou mais",0.9,""],["Ignorada",1.2,"c"]]'></div></div>
+    <div class="chart"><div class="ct">Motivo da imigração (%)</div><div class="hbars" data-pct="1" data-items='[["Crise econômica",51,"b"],["Crise política",25.4,"b"],["Busca de trabalho",12.3,"b"],["Outros",10.8,"c"],["Ignorado",0.5,"c"]]'></div></div>
+    <div class="chart"><div class="ct">Escolaridade (%)</div><div class="hbars" data-pct="1" data-items='[["Analfabeto",0.9,"g"],["Fund. incompl.",2.3,"g"],["Fund. completo",4.8,"g"],["Médio incompl.",14,"g"],["Médio completo",30.5,"g"],["Sup. incompl.",15.6,"g"],["Sup. completo",28.8,"g"],["Pós-graduado",3.5,"g"]]'></div></div>
+  </div>
+  <div class="box key"><span class="t">Como interpretar (raciocínio de prova)</span>
+    <ul>
+      <li><strong>72% têm entre 20 e 39 anos:</strong> é uma migração de <strong>adultos jovens em idade produtiva</strong>, o padrão clássico da migração econômica.</li>
+      <li><strong>76,4% saíram por crise econômica ou política</strong> (51 + 25,4). É uma migração de <strong>fuga</strong>, e não de “aventura”.</li>
+      <li><strong>32,3% têm ensino superior completo ou pós</strong> (28,8 + 3,5), e quase metade (47,9%) chegou ao ensino superior. É uma população <strong>muito escolarizada</strong>: a Venezuela está sofrendo a sua própria fuga de cérebros.</li>
+      <li><strong>Complemento:</strong> muitos desses profissionais acabam em subempregos no Brasil, por causa da dificuldade de revalidar diplomas e do idioma. Isso é <strong>desperdício de capital humano</strong>.</li>
+    </ul>
+  </div>
+
+  <p><a class="vmini" href="https://www.youtube.com/watch?v=34Ookq6D9cg" target="_blank" rel="noopener">▶ Migração e crise dos refugiados: Venezuela, Síria e Haiti (prof. Miko)</a></p>
+</section>
+
+<!-- ============ MÓDULO 5 ============ -->
+<section class="block" id="m5">
+  <div class="modhead"><div class="modnum">5</div><div><div class="kicker">Explicação completa · Módulo 5</div><h2>Emigração brasileira e “fuga de cérebros”</h2></div></div>
+  <p class="lead">O Brasil, que por um século recebeu milhões de imigrantes, passou a <strong>mandar</strong> brasileiros para fora. Hoje ele é, ao mesmo tempo, país de <strong>imigração e de emigração</strong>.</p>
+
+  <h3>5.1 Emigração: o que diz o slide</h3>
+  <div class="card" style="border-left:5px solid var(--terra)">
+    <p><strong>[Pós-1950]: predomínio da EMIGRAÇÃO</strong></p>
+    <ul class="clean">
+      <li>Últimos 25 anos: emigração de <strong>3 milhões de habitantes</strong>.</li>
+      <li>Destinos: América Anglo-Saxônica / Europa / Ásia / África.</li>
+      <li>Destaque: <strong>EUA / Europa</strong> (os “brazucas” nos EUA) / <strong>dekasseguis no Japão</strong>.</li>
+      <li><strong>“Fuga de cérebros”.</strong></li>
+    </ul>
+  </div>
+  <div class="box doubt"><span class="t">Atenção à data</span><p>O slide marca a virada em “pós-1950”. A maior parte dos livros e das provas situa o <strong>grande salto da emigração brasileira nos anos 1980</strong>, a chamada “<strong>década perdida</strong>”, com hiperinflação, desemprego e estagnação. A leitura mais segura é esta: depois de 1950, a imigração cai e deixa de predominar, e <strong>a partir dos anos 1980</strong> a emigração se torna um fenômeno de massa. Se a questão pedir a data, prefira “anos 1980” para o início da emigração em massa.</p></div>
+  <div class="box comp"><span class="t">Complemento para melhor compreensão</span>
+    <ul>
+      <li><strong>Brazucas:</strong> apelido dos brasileiros que vivem no exterior, sobretudo nos EUA. <strong>Governador Valadares (MG)</strong> ficou famosa por enviar muitos moradores para os EUA, e as <strong>remessas</strong> (dinheiro enviado para a família) movimentam a economia da cidade.</li>
+      <li><strong>Dekasseguis</strong> (palavra japonesa que quer dizer algo como “trabalhador que sai de casa”): descendentes de japoneses (<em>nikkeis</em>) que foram trabalhar no Japão, principalmente depois que uma lei japonesa de 1990 facilitou o visto para descendentes. Quase sempre ocupam trabalhos braçais nas fábricas.</li>
+      <li>Repare no <strong>ciclo</strong>: os avós vieram do Japão para o café paulista (a partir de 1908); os netos fizeram o caminho inverso a partir dos anos 1990. É um ótimo exemplo para discursivas.</li>
+    </ul>
+  </div>
+
+  <h3>5.2 Fuga de cérebros: conceito</h3>
+  <div class="box key"><span class="t">Definição</span><p><strong>Fuga de cérebros</strong> (em inglês, <em>brain drain</em>) é a <strong>emigração de mão de obra altamente qualificada</strong> (cientistas, médicos, engenheiros, programadores, pesquisadores) de países em desenvolvimento para países desenvolvidos. O país de origem pagou pela formação dessa pessoa, e quem aproveita o conhecimento é o país de destino.</p></div>
+  <p>O mapa-múndi do slide (“Migrações de trabalhadores qualificados”) mostra:</p>
+  <ul class="clean">
+    <li><strong>Países de chegada</strong> (em verde): EUA, Canadá, países da Europa Ocidental, Austrália e outros países ricos.</li>
+    <li><strong>Países de saída</strong> (asterisco vermelho): entre eles Brasil, México, Argentina, Peru, Índia, China, Filipinas e Rússia (“Países do Leste”).</li>
+    <li><strong>Setas:</strong> principais fluxos de trabalhadores altamente qualificados, quase todos rumo ao Norte Global.</li>
+  </ul>
+
+  <h3>5.3 Brasileiros em fuga: os dados</h3>
+  <div class="chart">
+    <div class="ct">“Passagem só de ida”: declarações anuais de saída definitiva do país</div>
+    <div class="cs">Infográfico “Brasileiros em fuga” (Receita Federal e JBJ Partners)</div>
+    <div class="vcols" data-fmt="int" data-items='[["2011",8170],["2012",9412],["2013",9858],["2014",12241],["2015",14612],["2016",20493],["2017",21236]]'></div>
+  </div>
+  <p><strong>Leitura:</strong> de 2011 a 2017 as saídas definitivas passaram de 8.170 para 21.236, <strong>mais que dobraram (+160%)</strong>. O salto maior acontece entre 2015 e 2016, período de recessão econômica e crise política no Brasil (complemento).</p>
+
+  <div class="grid2">
+    <div class="chart">
+      <div class="ct">Motivos para sair (respostas múltiplas, %)</div>
+      <div class="hbars" data-pct="1" data-items='[["Segurança/violência",56,""],["Instab. política/corrupção",47,""],["Baixa qualidade de vida",45,""],["Instab. econômica",45,""],["Futuro dos filhos",41,""],["Cultura*",36,"c"],["Educação**",20,"c"],["Emprego/transferência",14,"c"],["Algo diferente",14,"c"],["Seg. jurídica p/ empreender",12,"c"],["Outro",8,"c"]]'></div>
+      <div class="cs" style="margin-top:8px">* “jeitinho brasileiro”, cultura de levar vantagem, falta de planejamento etc. ** baixa qualidade ou alto custo do sistema educacional. Como as respostas são múltiplas, a soma passa de 100%.</div>
+    </div>
+    <div class="chart">
+      <div class="ct">Escolaridade dos brasileiros que migraram para os EUA (%)</div>
+      <div class="tw" style="margin:0"><table>
+        <tr><th></th><th class="num">Antes de 2013</th><th class="num">De 2014 para cá</th></tr>
+        <tr><td>Doutor/mestre/MBA</td><td class="num">18</td><td class="num">23</td></tr>
+        <tr><td>Pós-graduado</td><td class="num">22</td><td class="num">24</td></tr>
+        <tr><td>Superior completo</td><td class="num">43</td><td class="num">46</td></tr>
+        <tr><td>Sem curso superior</td><td class="num">22</td><td class="num"><strong>6</strong></td></tr>
+      </table></div>
+      <div class="cs" style="margin-top:8px">⚠ No infográfico original, a coluna “antes de 2013” soma 105%: provável erro ou arredondamento da fonte. A tendência é o que importa.</div>
+    </div>
+  </div>
+  <div class="box key"><span class="t">O que esses dados provam</span><p>A emigração para os EUA ficou <strong>mais qualificada</strong>: quem não tem curso superior caiu de 22% para 6%, enquanto mestres, doutores e MBAs subiram de 18% para 23%. E os motivos principais <strong>não são só salário</strong>: violência, instabilidade política e qualidade de vida lideram. É uma emigração de classe média alta, que tem condições de escolher.</p></div>
+
+  <h4>Cientistas brasileiros no mundo</h4>
+  <div class="chart">
+    <div class="ct">Países que mais receberam pesquisadores brasileiros em 2015</div>
+    <div class="hbars" data-items='[["Estados Unidos",17517,""],["França",4265,""],["Alemanha",4136,""],["Irlanda",2461,""],["Itália",1828,"g"],["Portugal",1815,"g"],["Hungria",1689,"g"],["Canadá",1335,"g"],["Reino Unido",1201,"g"],["Espanha",993,"g"]]'></div>
+  </div>
+  <ul class="clean">
+    <li>Em 2012, uma pesquisa do <strong>Escritório Nacional de Pesquisas Econômicas dos EUA</strong> estimou em <strong>8,3%</strong> o percentual de cientistas brasileiros desenvolvendo pesquisas no exterior.</li>
+    <li>Segundo o infográfico, o Brasil não tinha nenhuma universidade no ranking <em>Times Higher Education</em> 2015/2016, “prestigiosa publicação que elege as melhores instituições de ensino ao redor do globo”. <span class="tag">complemento: o texto refere-se ao grupo de elite do ranking; universidades como a USP apareciam em posições mais baixas</span></li>
+  </ul>
+  <div class="chart">
+    <div class="ct">Distribuição de bolsas de graduação e pós-graduação no exterior (CAPES), 1998–2015</div>
+    <div class="vcols" data-fmt="int" data-items='[["98",1867],["99",2197],["00",2430],["01",2492],["02",2470],["03",2642],["04",2919],["05",3507],["06",3863],["07",3906],["08",3972],["09",4159],["10",4902],["11",6361],["12",11983],["13",26218],["14",44402],["15",40330]]'></div>
+  </div>
+  <div class="box comp"><span class="t">Complemento para melhor compreensão</span><p>O salto a partir de 2012 se explica pelo programa federal <strong>Ciência sem Fronteiras</strong> (2011–2017), que mandou dezenas de milhares de estudantes para universidades estrangeiras. Mandar estudantes para fora <strong>não é, em si, fuga de cérebros</strong>: vira fuga quando eles <strong>não voltam</strong>, por falta de vagas, verba ou estrutura de pesquisa no Brasil. É exatamente o que o Módulo 6 mostra com o corte de orçamento.</p></div>
+
+  <h4>Rumo ao aeroporto: vistos de trabalho americanos</h4>
+  <div class="chart">
+    <div class="ct">Vistos americanos de trabalho concedidos a brasileiros, de janeiro a outubro</div>
+    <div class="cs">Barras: <span style="color:var(--terra);font-weight:700">2018</span> × <span style="color:var(--green);font-weight:700">2019</span></div>
+    <div class="tw" style="margin:0"><table>
+      <tr><th>Categoria</th><th>O que é</th><th class="num">2018</th><th class="num">2019</th></tr>
+      <tr><td><strong>EB-1</strong></td><td>Trabalhador prioritário: habilidades extraordinárias em ciências ou atletismo, professor/pesquisador de destaque, executivo/gerente de multinacional</td><td class="num">135</td><td class="num">148</td></tr>
+      <tr><td><strong>EB-2</strong></td><td>Profissionais de alta qualificação ou pessoas com habilidades excepcionais</td><td class="num">44</td><td class="num"><strong>192</strong></td></tr>
+      <tr><td><strong>EB-3</strong></td><td>Trabalhadores qualificados e outros trabalhadores</td><td class="num">129</td><td class="num">190</td></tr>
+      <tr><td><strong>EB-5</strong></td><td>Investidor (condicionado à geração de empregos)</td><td class="num">146</td><td class="num">230</td></tr>
+    </table></div>
+    <p style="font-size:.88rem;margin:10px 0 0">No período, <strong>3.048</strong> vistos de imigração americanos, de todos os tipos, foram concedidos a brasileiros. Para todas as nacionalidades, o total de vistos de todos os tipos foi 446.867 (2018) e 385.477 (2019): enquanto o total mundial <strong>caiu</strong>, os vistos de trabalho para brasileiros <strong>subiram</strong>. Destaque para o EB-2 (alta qualificação), que foi de 44 para 192, <strong>mais de 4 vezes</strong>.</p>
+  </div>
+  <div class="chart">
+    <div class="ct">Declarações de saída definitiva do Brasil (em mil)</div>
+    <div class="cs">Fontes do infográfico: Receita Federal do Brasil e Departamento de Estado dos EUA</div>
+    <div class="vcols" data-fmt="dec" data-items='[["2010",8.2],["2011",9.4],["2012",10],["2013",12.5],["2014",15],["2015",21.1],["2016",23],["2017",23.3],["2018",22.4]]'></div>
+  </div>
+  <div class="box doubt"><span class="t">Dois infográficos, números um pouco diferentes</span><p>Este gráfico (2011: 9,4 mil; 2017: 23,3 mil) não bate exatamente com o de “Brasileiros em fuga” (2011: 8.170; 2017: 21.236). As fontes e os recortes são diferentes. A mensagem dos dois é a mesma: <strong>as saídas definitivas praticamente triplicaram na década</strong>. Em questões, use sempre o dado que a própria questão apresentar.</p></div>
+
+  <p><a class="vmini" href="https://www.youtube.com/watch?v=gUQfbxJAN0I" target="_blank" rel="noopener">▶ Fuga de cérebros: entenda de uma vez (Ôxe Humanas)</a><a class="vmini" href="https://www.youtube.com/watch?v=3akR1Z4CeZg" target="_blank" rel="noopener">▶ Fuga de cérebros no Brasil (Quack)</a></p>
+</section>
+
+<!-- ============ MÓDULO 6 ============ -->
+<section class="block" id="m6">
+  <div class="modhead"><div class="modnum">6</div><div><div class="kicker">Explicação completa · Módulo 6</div><h2>Atualidades</h2></div></div>
+  <p class="lead">Esta parte usa notícias e dados recentes (2020–2023). É o tipo de conteúdo que vira contextualização em ENEM, FUVEST e Unicamp.</p>
+
+  <h3>6.1 Venezuela: o fluxo continua</h3>
+  <div class="grid2">
+    <div class="card" style="border-top:4px solid var(--blue)">
+      <p class="mono" style="margin-top:0;color:var(--ink2)">ACNUR · 31/03/2023</p>
+      <h4 style="margin-top:0">Operação Acolhida atinge a marca de 100 mil refugiados e migrantes venezuelanos interiorizados em 930 municípios do Brasil</h4>
+      <p style="font-size:.92rem">Um voo com 144 passageiros saiu de Boa Vista para Curitiba, levando Maritxa D., filhos e neta para reencontrar outra parte da família, que estava no Paraná havia cinco anos.</p>
+    </div>
+    <div class="card" style="border-top:4px solid var(--red)">
+      <p class="mono" style="margin-top:0;color:var(--ink2)">UOL · 13/06/2023</p>
+      <h4 style="margin-top:0">Entrada de venezuelanos por RR dispara com mais crianças, idosos e doentes</h4>
+      <p style="font-size:.92rem">O perfil muda: se em 2017 predominavam adultos jovens (72% entre 20 e 39 anos), agora chegam cada vez mais <strong>famílias e pessoas vulneráveis</strong>, o que exige mais estrutura de saúde e assistência.</p>
+    </div>
+  </div>
+  <div class="box comp"><span class="t">Complemento para melhor compreensão: a Operação Acolhida</span>
+    <p>Criada pelo governo federal em <strong>2018</strong>, coordenada pelas Forças Armadas com apoio de agências da ONU (Acnur, OIM) e de ONGs. Ela tem <strong>três eixos</strong>:</p>
+    <ol>
+      <li><strong>Ordenamento da fronteira:</strong> recepção, documentação e vacinação em Pacaraima (RR).</li>
+      <li><strong>Abrigamento:</strong> abrigos temporários em Boa Vista e Pacaraima.</li>
+      <li><strong>Interiorização:</strong> transferência voluntária dos venezuelanos para outras cidades do país, onde há mais emprego. É isso que “100 mil interiorizados em 930 municípios” quer dizer. A interiorização alivia Roraima e melhora a integração dos migrantes.</li>
+    </ol>
+    <p>Note a ligação com a notícia: a família de Maritxa usou a <strong>rede migratória</strong> (parentes já instalados no Paraná), um conceito do Módulo 1.</p>
+  </div>
+
+  <h4>Movimentos de entradas e saídas (jan/2017 – abr/2023)</h4>
+  <div class="stats">
+    <div class="stat"><div class="n" style="color:var(--blue)">903.279</div><div class="l">entradas de venezuelanos</div></div>
+    <div class="stat"><div class="n" style="color:var(--red)">444.136</div><div class="l">saídas</div></div>
+    <div class="stat"><div class="n" style="color:var(--green)">459.143</div><div class="l">saldo (permaneceram) = 51% das entradas</div></div>
+  </div>
+  <p>Fonte do infográfico: OBMigra, a partir de dados da Polícia Federal (Sistema de Tráfego Internacional).</p>
+  <pre class="scheme">
+  Das 903.279 entradas:
+    ├── 51%  ficaram no Brasil (saldo)                         → Brasil como DESTINO
+    ├── 17%  saíram pela fronteira terrestre com a Venezuela   → retorno / idas e vindas (Pacaraima, RR)
+    └── 32%  saíram para OUTROS PAÍSES (aeroportos de          → Brasil como país de TRÂNSITO
+             Guarulhos-SP e Galeão-RJ)
+                                                   51% + 17% + 32% = 100% ✔
+  Conta de conferência: 459.143 ÷ 903.279 = 0,508 → 51% ✔
+  </pre>
+  <div class="box doubt"><span class="t">Como os percentuais foram lidos</span><p>O infográfico coloca 17% perto de Pacaraima (ícone de saída a pé, “movimentos de saída pela fronteira com a Venezuela”) e 32% perto de São Paulo/Rio (ícone de mala, “movimentos de saída para outros países”). Como 17% + 32% + 51% = 100%, a leitura mais provável é que os três percentuais se referem ao total de entradas. O principal posto de entrada é <strong>Pacaraima (via terrestre)</strong>; os de saída incluem os aeroportos de Guarulhos e do Rio de Janeiro (Antônio Carlos Jobim/Galeão).</p></div>
+
+  <div class="chart">
+    <div class="ct">Entradas e saídas de venezuelanos por ano (controle migratório)</div>
+    <div class="cs">* 2023 = somente janeiro a abril</div>
+    <div class="divchart" data-items='[["2017",101320,74031],["2018",227433,136371],["2019",236405,111609],["2020",47661,31874],["2021",62419,16345],["2022",161375,51881],["2023*",66666,22025]]'></div>
+    <div class="lgd"><span><i style="background:var(--blue)"></i>Entradas</span><span><i style="background:var(--red)"></i>Saídas</span></div>
+  </div>
+  <p><strong>Leitura passo a passo:</strong></p>
+  <ol>
+    <li><strong>2018–2019:</strong> pico, com mais de 227 mil e 236 mil entradas.</li>
+    <li><strong>2020–2021:</strong> queda brusca. <em>Complemento:</em> a pandemia de covid-19 levou ao fechamento da fronteira terrestre.</li>
+    <li><strong>2022:</strong> retomada forte (161.375 entradas).</li>
+    <li>O gráfico mensal do slide (maio/2022 a abril/2023) mostra entre <strong>10 e 17 mil entradas por mês</strong> e entre 3,7 e 6 mil saídas: o fluxo segue alto e constante.</li>
+  </ol>
+  <div class="box exam"><span class="t">Conferência feita (vale treinar)</span><p>A soma das entradas anuais (101.320 + 227.433 + 236.405 + 47.661 + 62.419 + 161.375 + 66.666) dá exatamente <strong>903.279</strong>, e a das saídas dá <strong>444.136</strong>. E a soma dos quatro últimos meses do gráfico mensal (jan–abr/2023: 16.953 + 17.414 + 17.471 + 14.828) dá <strong>66.666</strong>, o valor de 2023 no gráfico anual. Os dados do professor são consistentes entre si.</p></div>
+
+  <h3>6.2 Refugiados no Brasil × Pacto Global para Migração</h3>
+  <div class="grid3">
+    <div class="card"><p class="mono" style="margin-top:0;color:var(--ink2)">R7 · 22/06/2023</p><h4 style="margin-top:0">Mais de 200 refugiados se alojam no Aeroporto de Guarulhos (SP) à espera de vagas de acolhimento</h4><p style="font-size:.9rem">Afegãos fogem do Talibã, que reassumiu o controle do país. O aeroporto diz que as vagas de acolhimento estão preenchidas.</p></div>
+    <div class="card"><p class="mono" style="margin-top:0;color:var(--ink2)">Jornal da USP · 18/12/2020</p><h4 style="margin-top:0">Brasil completa quase dois anos fora do Pacto Global para Migração da ONU</h4><p style="font-size:.9rem">Paulo Borba Casella acredita que é prejudicial ao Brasil ficar fora das discussões do pacto, principalmente por haver mais de 3 milhões de brasileiros no exterior, alguns em situação de precariedade.</p></div>
+    <div class="card"><p class="mono" style="margin-top:0;color:var(--ink2)">Conectas · 05/01/2023</p><h4 style="margin-top:0">Brasil anuncia retorno ao Pacto Global para Migração</h4><p style="font-size:.9rem">Antecipado no discurso de posse do novo chanceler Mauro Vieira, o governo Lula anunciou o retorno do Brasil ao Pacto Global para Migração Segura, Ordenada e Regular, em comunicado à ONU e à OIM (Organização Internacional para as Migrações).</p></div>
+  </div>
+  <div class="box comp"><span class="t">Complemento para melhor compreensão</span>
+    <ul>
+      <li><strong>Pacto Global para Migração Segura, Ordenada e Regular:</strong> acordo da ONU adotado em dezembro de 2018 (Marrakech). Ele <strong>não é vinculante</strong> (não obriga os países a nada) e reúne compromissos de cooperação: combate ao tráfico de pessoas, acesso a serviços básicos, documentação.</li>
+      <li>O Brasil assinou em 2018 e <strong>saiu em janeiro de 2019</strong> (governo Bolsonaro), alegando soberania nacional. <strong>Voltou em janeiro de 2023</strong> (governo Lula).</li>
+      <li><strong>Talibã:</strong> grupo fundamentalista islâmico que retomou o poder no Afeganistão em agosto de 2021, depois da retirada das tropas dos EUA. O Brasil passou a conceder <strong>vistos humanitários</strong> a afegãos, mas a estrutura de acolhimento não acompanhou a demanda (daí as pessoas acampadas no aeroporto).</li>
+      <li><strong>Lei de Migração (Lei 13.445/2017):</strong> substituiu o antigo Estatuto do Estrangeiro (1980, da ditadura), que via o estrangeiro como ameaça à segurança nacional. A lei nova trata o migrante como <strong>sujeito de direitos</strong> e repudia a xenofobia. Compare com a “porta vigiada” de 1930: a visão sobre o imigrante mudou de novo.</li>
+    </ul>
+  </div>
+  <div class="box key"><span class="t">A contradição que a banca gosta</span><p>O Brasil é <strong>ao mesmo tempo</strong> país de destino (venezuelanos, haitianos, afegãos) e país de origem (3 milhões de brasileiros no exterior). Sair de um pacto que protege migrantes prejudica também os <strong>brasileiros</strong> que vivem fora, e é esse o argumento do professor da USP na reportagem.</p></div>
+
+  <h3>6.3 Fuga de cérebros hoje: a ciência sem verba</h3>
+  <div class="chart">
+    <div class="ct">Orçamento dos principais fundos de apoio à pesquisa (FNDCT, CNPq e CAPES), total, 2000–2020</div>
+    <div class="cs">R$ bilhões de 2019 (deflacionados pelo IPCA). Valores da linha “total” do gráfico do slide.</div>
+    <div class="vcols" data-fmt="dec" data-items='[["00",4.08],["01",5.20],["02",4.58],["03",4.33],["04",3.98],["05",4.52],["06",4.79],["07",5.90],["08",7.43],["09",10.18],["10",10.53],["11",10.88],["12",11.25],["13",12.78],["14",13.09],["15",13.97],["16",9.43],["17",8.40],["18",6.74],["19",6.08],["20",4.40]]'></div>
+  </div>
+  <div class="box key"><span class="t">Leitura do gráfico</span><p>O orçamento fica perto de R$ 4–5 bilhões até 2006, <strong>sobe até o pico de R$ 13,97 bilhões em 2015</strong> e depois <strong>despenca para R$ 4,40 bilhões em 2020</strong>, praticamente o nível de 2000. É uma queda de cerca de <strong>68%</strong> em cinco anos (4,40 ÷ 13,97 ≈ 0,31). Nas barras do slide, a CAPES (bolsas) é o fundo que mais cresceu até 2015 e o que mais caiu depois, e o FNDCT despenca a partir de 2016.</p></div>
+  <div class="card"><p class="mono" style="margin-top:0;color:var(--ink2)">Correio Braziliense</p><h4 style="margin-top:0">Cientistas se manifestam contra corte de 90% nos recursos para pesquisa</h4><p style="font-size:.9rem">A pedido do Ministério da Economia, R$ 690 milhões que iriam para o CNPq foram realocados para outras áreas. O ministro da Ciência criticou a decisão.</p></div>
+  <p>O último gráfico do slide (“Histórico da saída de brasileiros de alta qualificação para os EUA”, fonte AG Immigration) mostra os green cards EB-1 (profissionais entre os 5% mais talentosos de sua área) e EB-2 (entre os 15% mais qualificados). As barras ficam baixas por quase toda a série e dão um <strong>salto no final</strong>, com o EB-2 chegando a <strong>1.491</strong>. <span class="tag">os anos no eixo estão ilegíveis</span></p>
+  <pre class="scheme">
+  O CICLO DA FUGA DE CÉREBROS
+
+  corte de verbas (CAPES, CNPq, FNDCT)
+          │
+          ▼
+  menos bolsas, laboratórios e concursos  ──►  pesquisador sem perspectiva no Brasil
+                                                        │
+                                                        ▼
+                                     emigra (EUA, Europa) com visto EB-1/EB-2
+                                                        │
+                                                        ▼
+         país perde capital humano formado com dinheiro público
+                                                        │
+                                                        ▼
+         menos inovação e patentes nacionais → mais DEPENDÊNCIA TECNOLÓGICA
+                                                        │
+                                                        ▼
+                     economia menos dinâmica → menos verba para ciência ──┐
+                          ▲                                               │
+                          └───────────────────────────────────────────────┘
+  </pre>
+  <div class="box exam"><span class="t">Cai em prova</span><p>A ligação entre <strong>fuga de cérebros e dependência tecnológica</strong> é exatamente o que a primeira questão de revisão do professor cobra (a das patentes). Guarde: quanto menor o IDH, maior a proporção de patentes registradas por nacionais que moram <strong>fora</strong> do país.</p></div>
+</section>
+
+<!-- ============ EXEMPLOS E ANALOGIAS ============ -->
+<section class="block" id="exemplos">
+  <div class="kicker">Parte 3</div>
+  <h2>Exemplos e analogias</h2>
+  <p class="lead">Analogias servem para “ancorar” um conceito. Use-as para <strong>entender</strong>; na prova, escreva o conceito técnico.</p>
+  <div class="grid2">
+    <div class="box analog"><span class="t">Saldo migratório = caixa-d’água</span><p>A torneira é a imigração (entra água) e o ralo é a emigração (sai água). O nível da caixa sobe se entra mais do que sai (saldo positivo, como Goiás, +129 mil) e desce se sai mais (saldo negativo, como a Bahia, −108 mil). Mas a caixa também tem outra torneira, os nascimentos: por isso SP pode ter saldo migratório negativo e ainda assim crescer.</p></div>
+    <div class="box analog"><span class="t">Repulsão e atração = empurrão e ímã</span><p>Toda migração tem uma mão que empurra (seca, desemprego, guerra) e um ímã que puxa (fábrica, salário, parentes). Se só houver o empurrão, a pessoa não sabe para onde ir; se só houver o ímã, muitas vezes ela não sai. As grandes ondas acontecem quando os dois agem juntos. Exemplo: seca no Sertão + indústria em São Paulo.</p></div>
+    <div class="box analog"><span class="t">Lei de Terras = loja sem crediário</span><p>A terra passou a estar “à venda só à vista”. Quem chegou sem dinheiro (o imigrante, o liberto, o posseiro) só podia olhar a vitrine e ir trabalhar para quem já era dono. O cadeado não foi colocado por acaso: ele garantiu os braços do café.</p></div>
+    <div class="box analog"><span class="t">Cota de 2% = clube que só aceita indicados</span><p>Imagine um clube que só aceita, por ano, novos sócios na proporção de 2% dos sócios antigos de cada família. Famílias antigas e grandes (italianos, portugueses) continuam entrando; famílias recém-chegadas (japoneses) ficam quase de fora. A regra parece neutra, mas <strong>tem alvo</strong>.</p></div>
+    <div class="box analog"><span class="t">Porta aberta × porta vigiada</span><p>Antes de 1930, o Brasil era uma loja com a porta aberta e um funcionário chamando clientes na calçada (subvenção). Depois de 1930, virou um prédio com portaria: o porteiro pede documento, conta quantos entram e escolhe quem sobe.</p></div>
+    <div class="box analog"><span class="t">Fuga de cérebros = base de futebol que vende cedo</span><p>Um clube investe anos formando um craque na base e o vende para a Europa antes de ele ganhar um título no time. O clube paga a formação e o outro time colhe os gols. Com a ciência é igual: o Brasil paga escola, graduação e bolsa, e a patente é registrada lá fora.</p></div>
+    <div class="box analog"><span class="t">Rede migratória = indicação de emprego</span><p>Você tende a ir para onde já tem um primo, que te arruma um quarto e uma vaga. Por isso os fluxos têm “endereço”: nordestinos para São Paulo, valadarenses para Boston, a família de Maritxa para o Paraná.</p></div>
+    <div class="box analog"><span class="t">Migração pendular = maré</span><p>Todo dia a “maré humana” entra na metrópole de manhã e sai à noite. Ninguém muda de residência: é um movimento cotidiano, diferente da migração sazonal (que acompanha as estações do ano).</p></div>
+    <div class="box analog"><span class="t">Brasil como país de trânsito = aeroporto de conexão</span><p>32% dos venezuelanos que entraram saíram para outros países pelos aeroportos: para eles, o Brasil foi uma escala, não o destino final. Um país pode ser destino, origem e escala ao mesmo tempo.</p></div>
+    <div class="box analog"><span class="t">Aumento percentual = o efeito “de 1 para 10”</span><p>Se você tinha 1 real e passou a ter 10, cresceu 900%. Se tinha 1.000 e passou a ter 5.000, cresceu “só” 400%, mas ganhou muito mais dinheiro. É por isso que o Peru (+14.975%) e o Norte do Brasil (×10 entre 1940 e 2010) impressionam no percentual.</p></div>
+  </div>
+</section>
+
+<!-- ============ ESQUEMAS ============ -->
+<section class="block" id="esquemas">
+  <div class="kicker">Parte 4</div>
+  <h2>Esquemas e desenhos em texto</h2>
+
+  <h4>1. O mapa das setas: 150 anos de fluxos em um desenho</h4>
+  <pre class="scheme">
+                 ┌──────────────── EUROPA / JAPÃO ────────────────┐
+                 │  1850–1930: italianos, portugueses, espanhóis,  │
+                 │  alemães, japoneses  ═══════►  SP e SUL         │
+                 └──────────────────────────────────────────────────┘
+                                        ▲
+                1980+: brazucas (EUA/Europa), dekasseguis (Japão),
+                       fuga de cérebros  ◄═══════  BRASIL
+
+    NORTE ◄─────── 1950–70: fronteira, rodovias ─────────┐
+      ▲                                                  │
+      │  2010+: haitianos (Acre/Amazonas)                │
+      │  2017+: venezuelanos (Roraima → interiorização)  │
+      │                                                  │
+    CENTRO-OESTE ◄── 1950–70: Brasília, soja, gaúchos ── SUL
+      ▲
+      │ 1950–70
+    NORDESTE ═══ 1930–80 (13 milhões) ═══►  SUDESTE (indústria)
+             ◄═══ pós-1990: retorno ═════
+  </pre>
+
+  <h4>2. Cadeia causal da imigração europeia</h4>
+  <pre class="scheme">
+  crise na Europa ──► (repulsão)
+                          │
+  1850: fim do tráfico ───┼──► falta de braços no café ──► imigração SUBVENCIONADA
+  1850: Lei de Terras ────┘                                    │
+  ideologia do branqueamento ─────────────────────────────────┘
+                                                               ▼
+                           colonos no café (SP)  +  núcleos coloniais (Sul)
+                                                               │
+                                        capital do café → cidades → fábricas
+                                                               │
+                                     imigrante vira OPERÁRIO e CONSUMIDOR
+  </pre>
+
+  <h4>3. Economia → migração (fases internas)</h4>
+  <pre class="scheme">
+  ECONOMIA                          →  SETA NO MAPA
+  café (1850–1930)                  →  estrangeiros para SP
+  indústria (1930–1980)             →  NE ══► SE
+  fronteira agrícola + Brasília     →  S / NE ══► CO / N
+  mecanização do campo              →  CAMPO ══► CIDADE
+  desconcentração + guerra fiscal   →  metrópole ══► cidade média ; SE ══► NE (retorno)
+  home office (pós-pandemia)        →  capital ══► cidade pequena/média (seletivo)
+  </pre>
+
+  <h4>4. Classificação das migrações (árvore)</h4>
+  <pre class="scheme">
+  MIGRAÇÕES
+  ├── por TEMPO
+  │     ├── pendular ........ ida e volta no MESMO DIA (casa ⇄ trabalho/estudo)
+  │     ├── sazonal ......... em ÉPOCAS específicas do ano
+  │     │     └── transumância ... sazonal ligada ao TRABALHO/atividade econômica
+  │     ├── definitiva ...... muda de residência de vez (complemento)
+  │     └── nomadismo ....... contínua, sem residência fixa
+  ├── por ESPAÇO
+  │     ├── êxodo rural (campo → cidade)   ├── êxodo urbano (cidade → campo/cid. menor)
+  │     ├── intrarregional (mesma região)  ├── inter-regional (entre regiões)
+  │     └── internacional (entre países): imigração (entra) / emigração (sai)
+  └── por MOTIVAÇÃO
+        ├── espontânea/econômica (trabalho, renda)
+        └── forçada → REFÚGIO (guerra, perseguição, crise civil; "climático")
+  </pre>
+
+  <h4>5. Norte Global → Sul Global: a inversão da origem dos imigrantes</h4>
+  <pre class="scheme">
+  FINAL DO SÉC. XIX – 1930                     SÉC. XXI (pós-2010)
+  ─────────────────────────                    ──────────────────────────────
+  origem: NORTE GLOBAL (Europa)                origem: SUL GLOBAL (Haiti, Venezuela,
+                                                       Bolívia, Senegal, Congo, Angola...)
+  Estado: SUBSIDIA a vinda                     Estado: ACOLHE/REGULARIZA (visto humanitário,
+                                                       Operação Acolhida, Lei 13.445/2017)
+  motivo: braços p/ café + branqueamento       motivo: crise no país de origem + proximidade
+                                                       + redes + barreiras no Norte Global
+  destino: SP e Sul                            porta de entrada: Norte (RR, AC, AM) → interior
+  </pre>
+</section>
+
+<!-- ============ PEGADINHAS ============ -->
+<section class="block" id="pegadinhas">
+  <div class="kicker">Parte 5</div>
+  <h2>Pontos de atenção e pegadinhas</h2>
+  <div class="tw"><table>
+    <tr><th style="width:42%">❌ Afirmação errada (ou incompleta)</th><th>✅ Correção</th></tr>
+    <tr><td>“A Lei de Terras facilitou o acesso do imigrante à propriedade.”</td><td>Ela <strong>dificultou</strong>: terra só por compra. O objetivo era manter o imigrante como mão de obra.</td></tr>
+    <tr><td>“A imigração começou com a Abolição (1888).”</td><td>Ela cresce desde <strong>1850</strong>; a Abolição <strong>acelerou</strong> o fluxo (pico em 1890–1899).</td></tr>
+    <tr><td>“Os europeus vieram só porque faltava mão de obra.”</td><td>Também pesou o projeto de <strong>branqueamento</strong> (eugenia, racismo científico).</td></tr>
+    <tr><td>“Os italianos sempre foram o maior grupo.”</td><td>Depende do <strong>período</strong>: em 1870–1953 lideram os italianos; em séries mais longas, os portugueses.</td></tr>
+    <tr><td>“Toda imigração europeia foi para as fazendas de café.”</td><td>No Sul houve <strong>colonização de povoamento</strong> em pequenas propriedades (alemães, italianos).</td></tr>
+    <tr><td>“A Constituição de 1934 proibiu a imigração.”</td><td>Ela <strong>limitou</strong> (cota de 2%). E a Lei dos 2/3 regula <strong>empresas</strong>, não fronteiras.</td></tr>
+    <tr><td>“Crescimento relativo e absoluto são a mesma coisa.”</td><td>Na tabela da UERJ, o Sudeste teve o maior crescimento <strong>absoluto</strong> (+62,1 milhões), mas Centro-Oeste e Norte tiveram o maior <strong>relativo</strong>.</td></tr>
+    <tr><td>“Saldo migratório negativo significa que a população diminuiu.”</td><td>Não necessariamente: o crescimento natural pode compensar (caso de SP em 2004–2009).</td></tr>
+    <tr><td>“Migração de retorno quer dizer que o Nordeste ficou mais rico que o Sudeste.”</td><td>Não. O Nordeste <strong>melhorou</strong> (IDHM, irrigação, transferências) e o Sudeste ficou <strong>mais caro e saturado</strong>. É uma mudança relativa.</td></tr>
+    <tr><td>“Pendular e sazonal são sinônimos.”</td><td>Pendular = <strong>diária</strong>; sazonal = <strong>épocas do ano</strong>; transumância = sazonal ligada ao trabalho.</td></tr>
+    <tr><td>“Todo migrante que foge de dificuldade é refugiado.”</td><td>Refugiado é quem foge de <strong>perseguição</strong> ou de grave violação de direitos humanos. O “refugiado climático” <strong>não</strong> tem reconhecimento na Convenção de 1951.</td></tr>
+    <tr><td>“Os imigrantes causaram a epidemia de sarampo.”</td><td>O vírus veio de fora, mas a epidemia ocorreu por <strong>falha na cobertura vacinal</strong> (slide). Culpar o migrante é leitura xenófoba.</td></tr>
+    <tr><td>“O Brasil recebeu mais venezuelanos que o Chile, porque o aumento % foi maior.”</td><td>Percentual alto sobre base pequena <strong>≠</strong> número absoluto maior. Colômbia e Peru recebem muito mais.</td></tr>
+    <tr><td>“O êxodo urbano pós-pandemia é uma volta em massa ao campo.”</td><td>É <strong>seletivo</strong> (qualificados em home office) e vai, sobretudo, para <strong>cidades</strong> pequenas e médias.</td></tr>
+    <tr><td>“Fuga de cérebros é qualquer emigração.”</td><td>É a emigração de mão de obra <strong>altamente qualificada</strong>.</td></tr>
+    <tr><td>“Hoje o Brasil é só país de imigração” (ou “só de emigração”).</td><td>É <strong>os dois ao mesmo tempo</strong>, e ainda país de <strong>trânsito</strong> (32% dos venezuelanos saíram para outros países).</td></tr>
+    <tr><td>“A formação do povo brasileiro foi uma mistura harmoniosa.”</td><td>Houve miscigenação <strong>com conflito, escravidão e hierarquias</strong> (slide das três matrizes).</td></tr>
+    <tr><td>“Intraurbano é entre cidades.”</td><td>Pela definição usual, <strong>intra</strong>urbano é <em>dentro</em> da cidade; entre cidades é <strong>inter</strong>urbano (o slide usa o termo de forma imprecisa).</td></tr>
+  </table></div>
+</section>
+
+<!-- ============ O QUE MAIS CAI ============ -->
+<section class="block" id="prova">
+  <div class="kicker">Parte 6</div>
+  <h2>O que mais cai em prova</h2>
+  <div class="grid2">
+    <div class="box exam"><span class="t">Top temas (objetivas)</span><ol style="margin:4px 0;padding-left:20px">
+      <li>Leis de 1850 e transição do trabalho escravizado para o livre</li>
+      <li>Dois modelos de imigração: café (SP) × colonização (Sul)</li>
+      <li>Leitura de gráficos e tabelas: absoluto × relativo, saldo, percentuais</li>
+      <li>Fases das migrações internas e seus motores econômicos</li>
+      <li>Migração de retorno e cidades médias</li>
+      <li>Venezuelanos, Roraima e Operação Acolhida; haitianos</li>
+      <li>Fuga de cérebros e dependência tecnológica</li>
+      <li>Conceitos: pendular, sazonal, transumância, refugiado</li>
+    </ol></div>
+    <div class="box exam"><span class="t">Como escrever discursiva (padrão UFPR/UERJ)</span>
+      <p>As respostas esperadas dão <strong>0,25 por motivo</strong>. Então:</p>
+      <ul>
+        <li>Dê <strong>exatamente</strong> o número de motivos pedidos (se sobrar tempo, um a mais, bem separado).</li>
+        <li>Para cada um: <strong>motivo + explicação curta</strong>. Ex.: “Construção de Brasília (1960), que atraiu mão de obra para as obras e transferiu a capital para o interior.”</li>
+        <li>Use os <strong>termos técnicos</strong>: fronteira agrícola, substituição de importações, branqueamento, redes migratórias.</li>
+        <li>Se a questão pede para “nomear”, nomeie <strong>antes</strong> de explicar.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Questões de revisão do professor, resolvidas</h3>
+
+  <div class="q">
+    <div class="src">QUESTÃO 1 · OBJETIVA · FUGA DE CÉREBROS</div>
+    <p><em>Patente é um título de propriedade temporária sobre uma invenção ou modelo de utilidade, outorgado pelo Estado aos inventores ou autores ou outras pessoas físicas ou jurídicas detentoras de direitos sobre a criação. Com este direito, o inventor ou o detentor da patente tem o direito de impedir terceiros, sem o seu consentimento, de produzir, usar, colocar à venda, vender ou importar produto objeto de sua patente e/ou processo ou produto obtido diretamente por processo por ele patenteado.</em></p>
+    <div class="tw"><table>
+      <tr><th>País</th><th class="num">IDH (2015)</th><th class="num">% de patentes registradas por pessoas que moram fora de seu país (2007–2012)</th></tr>
+      <tr><td>Mauritânia</td><td class="num">0,487</td><td class="num">100</td></tr>
+      <tr><td>Brasil</td><td class="num">0,744</td><td class="num">16,8</td></tr>
+      <tr><td>Japão</td><td class="num">0,890</td><td class="num">1,2</td></tr>
+      <tr><td>EUA</td><td class="num">0,914</td><td class="num">1,5</td></tr>
+    </table></div>
+    <p>A leitura do texto e os dados do quadro permitem concluir que:</p>
+    <ul class="alts">
+      <li><b>A)</b> o registro de patentes por pessoas que moram fora de seu país indica que elas têm uma condição de vida muito favorável.</li>
+      <li><b>B)</b> os nascidos em países de baixo Índice de Desenvolvimento Humano não têm demonstrado esforços para criarem inovação.</li>
+      <li><b>C)</b> a emigração de cientistas não ocorre em países com elevados Índices de Desenvolvimento Humano.</li>
+      <li><b>D)</b> quanto menor o número de patentes produzidas pelos cientistas mais o país se desenvolve.</li>
+      <li class="ok"><b>E)</b> a chamada “fuga de cérebros” agrava a situação de dependência nos países de menor Índice de Desenvolvimento Humano. ✔</li>
+    </ul>
+    <details><summary>Resolução comentada</summary><div class="db">
+      <p><strong>Passo 1: ache o padrão da tabela.</strong> IDH e % de patentes feitas no exterior andam em sentidos opostos: IDH baixo (Mauritânia) → 100% das patentes registradas por quem mora fora; IDH alto (Japão, EUA) → pouco mais de 1%.</p>
+      <p><strong>Passo 2: interprete.</strong> Nos países pobres, os inventores estão <strong>fora</strong> (emigraram). A patente, e com ela os lucros e o controle da tecnologia, fica no país onde o cientista vive. O país de origem continua comprando tecnologia: <strong>dependência</strong>. → <strong>E</strong>.</p>
+      <p><strong>Por que as outras estão erradas:</strong></p>
+      <ul class="clean">
+        <li><b>A)</b> Os dados não medem condição de vida; indicam apenas onde o inventor mora.</li>
+        <li><b>B)</b> Eles inovam, sim (registram patentes), mas <strong>do exterior</strong>.</li>
+        <li><b>C)</b> Japão (1,2%) e EUA (1,5%) têm valores <strong>maiores que zero</strong>: a emigração ocorre, só que em pequena escala.</li>
+        <li><b>D)</b> Inverte a lógica: produzir patentes está associado a <strong>mais</strong> desenvolvimento.</li>
+      </ul>
+    </div></details>
+  </div>
+
+  <div class="q">
+    <div class="src">QUESTÃO 2 · OBJETIVA · NOVOS FLUXOS (assinale a INCORRETA)</div>
+    <p>De acordo com dados divulgados em 2020 pelo Ministério da Justiça, o Brasil atraiu diversos estrangeiros nos últimos anos. No período de 2010 a 2019, o país registrou <strong>1,085 milhão de imigrantes</strong>.</p>
+    <div class="chart" style="margin:10px 0">
+      <div class="ct">Imigrantes com registro no Brasil (Polícia Federal, 2019)</div>
+      <div class="hbars" data-items='[["Haiti",70129,""],["Venezuela",36349,""],["Colômbia",24709,""],["Bolívia",19457,"g"],["Argentina",13954,"g"],["Uruguai",13652,"g"],["China",13056,"c"],["Cuba",11455,"c"],["Estados Unidos",9861,"c"],["Peru",9214,"g"]]'></div>
+    </div>
+    <p>Considerando-se as informações apresentadas, é INCORRETO afirmar que:</p>
+    <ul class="alts">
+      <li class="ok"><b>A)</b> o processo imigratório atual é idêntico ao que ocorreu no final do século XIX até a década de 1930, quando as pessoas originárias de diferentes partes do globo constituíam os principais fluxos migratórios que vieram para o Brasil. ✔ (é a incorreta)</li>
+      <li><b>B)</b> a crise econômica internacional, iniciada em 2007 nos Estados Unidos, que também afetou de forma substancial a Europa e o Japão, introduziu maior complexidade ao fenômeno migratório latino-americano, especialmente com o incremento da mobilidade humana no cenário sul-sul, como ocorrido no Brasil.</li>
+      <li><b>C)</b> com o desenvolvimento econômico brasileiro, especialmente durante o primeiro quinquênio da década atual, imigrantes de diferentes origens do Sul Global (por exemplo: sul-americanos, haitianos, senegaleses entre outros), inseriram-se de forma crescente no país e no mercado de trabalho brasileiro.</li>
+      <li><b>D)</b> no primeiro quinquênio da década, imigrantes de diferentes partes do hemisfério sul e, especialmente, latino-americanos nos últimos anos, caracterizaram o curto, porém intenso, período de chegada de novos fluxos migratórios ao Brasil.</li>
+    </ul>
+    <details><summary>Resolução comentada</summary><div class="db">
+      <p><strong>A é a incorreta:</strong> o processo atual <strong>não</strong> é idêntico. Entre o fim do século XIX e 1930, os imigrantes vinham majoritariamente do <strong>Norte Global</strong> (Europa), com subsídio do Estado. Hoje vêm do <strong>Sul Global</strong> (Haiti, Venezuela, Colômbia, Bolívia lideram o gráfico), por crises nos países de origem. A palavra “idêntico” já é um alerta: em Geografia Humana, afirmações absolutas costumam estar erradas.</p>
+      <p><b>B)</b> Correta: a crise de 2007–2008 tornou EUA, Europa e Japão menos atraentes e mais restritivos, desviando fluxos para o eixo sul-sul.</p>
+      <p><b>C)</b> Correta: o bom momento econômico brasileiro no início dos anos 2010 atraiu imigrantes do Sul Global.</p>
+      <p><b>D)</b> Correta: descreve o período curto e intenso de chegada dos novos fluxos.</p>
+    </div></details>
+  </div>
+
+  <div class="q">
+    <div class="src">QUESTÃO 3 · DISCURSIVA · UFPR (1,0 PONTO)</div>
+    <p><em>“Assim, diferentemente das imigrações do final do século XIX e até a década de 1930, em que as pessoas originárias do Norte Global (maioritariamente europeus) constituíam os principais fluxos migratórios no Brasil, na atualidade e mais precisamente no primeiro quinquênio da presente década, constata-se o incremento de imigrantes provenientes do Sul Global (por exemplo: senegaleses, congoleses, angolanos, haitianos e venezuelanos, entre outros).”</em><br><span style="font-size:.85rem;color:var(--ink2)">Cavalcanti, L.; Oliveira, T.; Macedo, M. Imigração e refúgio no Brasil. Relatório Anual 2020. Brasília: OBMigra, 2020. p. 8–9. Adaptado.</span></p>
+    <p>Levando em consideração as informações do texto citado e os conhecimentos sobre os movimentos e as redes de migração, aponte <strong>dois motivos</strong> para o predomínio de europeus nas migrações para o território brasileiro no período desde o final do século XIX até 1930 e <strong>outros dois</strong> para o mais recente predomínio de imigrantes vindos do hemisfério sul, especialmente de países americanos.</p>
+    <details><summary>Resposta esperada (do material do professor)</summary><div class="db">
+      <p><strong>Europeus (fim do séc. XIX – 1930), cite dois:</strong></p>
+      <ul class="clean">
+        <li>Substituição progressiva da mão de obra escravizada pela mão de obra livre, sobretudo após a proibição do tráfico negreiro (1850) e a Abolição (1888).</li>
+        <li>Políticas de incentivo à imigração promovidas pelo Estado e pelos cafeicultores, incluindo a imigração subvencionada.</li>
+        <li>Crises econômicas e sociais na Europa, associadas à pobreza rural e à concentração fundiária, e transformações provocadas pela industrialização, como o desemprego.</li>
+        <li>Políticas e ideologias de “branqueamento” da população, influenciadas pelo racismo científico, pela eugenia e pelo darwinismo social presentes nas elites, que levaram o poder público a favorecer a entrada de europeus.</li>
+        <li>Políticas de colonização e ocupação territorial, especialmente no Sul, a partir do século XIX, evitando invasões e promovendo a proteção fronteiriça.</li>
+        <li>Conflitos políticos, perseguições e instabilidades na Europa, como a unificação italiana ou a 1ª Guerra Mundial.</li>
+      </ul>
+      <p><strong>Sul Global / americanos (atual), cite dois:</strong></p>
+      <ul class="clean">
+        <li>Proximidade territorial com os outros países sul-americanos, reduzindo custos e dificuldades do deslocamento.</li>
+        <li>Posição do Brasil como importante economia regional (potência emergente no Sul Global), polo de atração de trabalhadores.</li>
+        <li>Atuação das redes migratórias: comunidades já instaladas facilitam informação, moradia, emprego e a chegada de novos migrantes.</li>
+        <li>Existência de rotas terrestres de migração, especialmente pelas fronteiras da Região Norte.</li>
+        <li>Políticas de acolhimento e regularização migratória, incluindo vistos e autorizações de residência por razões humanitárias.</li>
+        <li>Ampliação do fluxo de refugiados e solicitantes de refúgio diante de conflitos, perseguições e graves violações de direitos humanos.</li>
+        <li>Dificuldades crescentes de entrada nos países ricos do Norte Global, com políticas migratórias mais restritivas ou aumento da xenofobia.</li>
+        <li>Crise econômica e política em países como a Venezuela, que tornou o Brasil local de refúgio.</li>
+        <li>Desestruturação social e econômica provocada pelo terremoto no Haiti.</li>
+      </ul>
+      <p><strong>Critério:</strong> 0,25 por motivo (4 motivos = 1,0 ponto).</p>
+      <div class="box key" style="margin-bottom:0"><span class="t">Modelo de resposta enxuta (nota máxima)</span><p>“O predomínio europeu entre o fim do século XIX e 1930 decorreu da necessidade de substituir a mão de obra escravizada nas lavouras de café após o fim do tráfico (1850) e a Abolição (1888), com imigração subvencionada pelo Estado e pelos cafeicultores, e da política de branqueamento, apoiada no racismo científico, que levou o governo a favorecer europeus. Já o recente predomínio de imigrantes do Sul Global se explica pela crise econômica e política na Venezuela, somada à proximidade territorial e às rotas terrestres pela Região Norte, e pelas políticas brasileiras de acolhimento humanitário, como os vistos concedidos a haitianos após o terremoto de 2010.”</p></div>
+    </div></details>
+  </div>
+
+  <div class="q">
+    <div class="src">QUESTÃO 4 · DISCURSIVA · UERJ (1,0 PONTO)</div>
+    <p>População absoluta das regiões brasileiras em 1940 e 2010 (em milhões de habitantes):</p>
+    <div class="tw"><table>
+      <tr><th>Região</th><th class="num">1940</th><th class="num">2010</th></tr>
+      <tr><td>Norte</td><td class="num">1,6</td><td class="num">15,9</td></tr>
+      <tr><td>Nordeste</td><td class="num">14,4</td><td class="num">53,1</td></tr>
+      <tr><td>Sudeste</td><td class="num">18,3</td><td class="num">80,4</td></tr>
+      <tr><td>Sul</td><td class="num">5,7</td><td class="num">27,4</td></tr>
+      <tr><td>Centro-Oeste</td><td class="num">1,1</td><td class="num">14,1</td></tr>
+    </table></div>
+    <p>O crescimento populacional brasileiro foi significativo a partir da segunda metade do século passado. Entretanto, a análise da tabela indica que esse avanço não foi semelhante entre as regiões do país. <strong>Nomeie as duas regiões brasileiras com maior crescimento relativo da população no período considerado. Em seguida, indique três motivos que contribuíram para esse acentuado aumento populacional.</strong></p>
+    <details><summary>Resolução com a conta + resposta esperada</summary><div class="db">
+      <p><strong>Passo 1: calcule o crescimento relativo</strong> (valor final ÷ valor inicial):</p>
+      <div class="tw"><table>
+        <tr><th>Região</th><th class="num">Absoluto (2010 − 1940)</th><th class="num">Relativo (2010 ÷ 1940)</th><th class="num">Aumento %</th></tr>
+        <tr><td><strong>Centro-Oeste</strong></td><td class="num">+13,0 mi</td><td class="num"><strong>× 12,8</strong></td><td class="num">≈ +1.182%</td></tr>
+        <tr><td><strong>Norte</strong></td><td class="num">+14,3 mi</td><td class="num"><strong>× 9,9</strong></td><td class="num">≈ +894%</td></tr>
+        <tr><td>Sul</td><td class="num">+21,7 mi</td><td class="num">× 4,8</td><td class="num">≈ +381%</td></tr>
+        <tr><td>Sudeste</td><td class="num"><strong>+62,1 mi</strong></td><td class="num">× 4,4</td><td class="num">≈ +339%</td></tr>
+        <tr><td>Nordeste</td><td class="num">+38,7 mi</td><td class="num">× 3,7</td><td class="num">≈ +269%</td></tr>
+      </table></div>
+      <p><strong>Resposta: Centro-Oeste e Norte</strong> (0,25). Cuidado: o Sudeste tem o maior crescimento <strong>absoluto</strong>, mas a questão pede o <strong>relativo</strong>.</p>
+      <p><strong>Três motivos (0,25 cada), segundo a resposta esperada:</strong></p>
+      <ul class="clean">
+        <li>Expansão da fronteira agrícola e modernização agropecuária, com doação ou compra de terras.</li>
+        <li>Construção de Brasília e estímulo à migração para compor a mão de obra local.</li>
+        <li>Construção de rodovias e integração do território, já que muitas delas passavam por Brasília.</li>
+        <li>Exploração mineral da Região Norte pelos militares, no sentido de avançar sobre a Amazônia.</li>
+        <li>Ocupação dessas regiões para formar um mercado nacional de consumo.</li>
+        <li>Concentração fundiária e mecanização agrícola no Sul e no Sudeste, deslocando grande massa de população para essas áreas.</li>
+        <li>Descentralização industrial do Sudeste e promoção da industrialização na Zona Franca de Manaus.</li>
+      </ul>
+      <div class="box comp" style="margin-bottom:0"><span class="t">Complemento para melhor compreensão</span><p>A <strong>Zona Franca de Manaus</strong> (criada em 1957 e ampliada pelo regime militar em 1967) é uma área com incentivos fiscais que atraiu indústrias de eletroeletrônicos e motocicletas para a Amazônia, gerando empregos e atraindo migrantes para Manaus.</p></div>
+    </div></details>
+  </div>
+</section>
+
+<!-- ============ VÍDEOS ============ -->
+<section class="block" id="videos">
+  <div class="kicker">Parte 7</div>
+  <h2>Vídeos no YouTube</h2>
+  <div class="box doubt"><span class="t">Como estes vídeos foram verificados</span><p>Cada link abaixo aponta para o <strong>vídeo exato</strong> (não para busca nem para canal). Em 22/09/2026, confirmei pelo serviço oficial de incorporação do YouTube (oEmbed) que cada vídeo existe, é público e tem o título e o canal indicados. Links que não passaram na checagem foram descartados. <strong>Limite honesto:</strong> não consegui abrir a página do YouTube para conferir a <strong>duração</strong> de cada vídeo. Os que têm “aula completa” no título são as aulas mais longas; os de “resumo” servem para revisar.</p></div>
+
+  <h4>Módulo 1 · Conceitos e tipos de migração</h4>
+  <div class="vgrid">
+    <a class="vid" href="https://www.youtube.com/watch?v=XMf-YP9RG4g" target="_blank" rel="noopener"><span class="vt">Aula Geografia: Migrações, Tipos de Migrações para o Enem e Vestibulares</span><span class="va">Stoodi</span><span class="vw">Pendular, sazonal, transumância, êxodo rural. Base do Módulo 1.</span><span class="go">▶ Assistir no YouTube</span></a>
+    <a class="vid" href="https://www.youtube.com/watch?v=ynW0PnDK5GM" target="_blank" rel="noopener"><span class="vt">Geografia pro ENEM: Aula de Migração | Conceitos sobre Migrações e seus tipos</span><span class="va">Prof Silvester Geografia</span><span class="vw">Aula focada nos conceitos e na classificação das migrações.</span><span class="go">▶ Assistir no YouTube</span></a>
+    <a class="vid" href="https://www.youtube.com/watch?v=k0_DHtg_Ffc" target="_blank" rel="noopener"><span class="vt">Migração no Brasil e no Mundo: Tipos e Movimentos Migratórios</span><span class="va">Toda Matéria</span><span class="vw">Panorama dos tipos de migração com exemplos brasileiros e mundiais.</span><span class="go">▶ Assistir no YouTube</span></a>
+  </div>
+
+  <h4>Módulo 2 · Imigração (séc. XIX–XX)</h4>
+  <div class="vgrid">
+    <a class="vid" href="https://www.youtube.com/watch?v=2skEPARnorI" target="_blank" rel="noopener"><span class="vt">O Segundo Reinado: Curso de História do Brasil pelo Brasil, episódio 13</span><span class="va">Débora Aladim</span><span class="vw">Contexto histórico: café, fim do tráfico (1850), Lei de Terras e início da imigração.</span><span class="go">▶ Assistir no YouTube</span></a>
+    <a class="vid" href="https://www.youtube.com/watch?v=JmetD8M5SeM" target="_blank" rel="noopener"><span class="vt">Migrações no Brasil: Aula completa, Geografia</span><span class="va">Prof. JeanGrafia | GabaritaGeo</span><span class="vw">Aula completa que cobre imigração e migrações internas.</span><span class="go">▶ Assistir no YouTube</span></a>
+  </div>
+
+  <h4>Módulo 3 · Migrações internas</h4>
+  <div class="vgrid">
+    <a class="vid" href="https://www.youtube.com/watch?v=MjQGfbXP3Qs" target="_blank" rel="noopener"><span class="vt">Migrações internas</span><span class="va">Brasil Escola Oficial</span><span class="vw">Fluxos Nordeste → Sudeste, fronteira agrícola e migração de retorno.</span><span class="go">▶ Assistir no YouTube</span></a>
+    <a class="vid" href="https://www.youtube.com/watch?v=cYFtCPn_Mzg" target="_blank" rel="noopener"><span class="vt">Migração e Fluxos Migratórios no Brasil: Entenda de Forma Simples</span><span class="va">Geo Ilustrada</span><span class="vw">Explicação visual dos grandes fluxos brasileiros.</span><span class="go">▶ Assistir no YouTube</span></a>
+    <a class="vid" href="https://www.youtube.com/watch?v=kb4Xxnmc7oY" target="_blank" rel="noopener"><span class="vt">MIGRAÇÕES | Resumo de Geografia para o Enem</span><span class="va">Curso Enem Gratuito</span><span class="vw">Resumo para revisão rápida antes da prova.</span><span class="go">▶ Assistir no YouTube</span></a>
+  </div>
+
+  <h4>Módulos 4 e 6 · Novos fluxos, refugiados e atualidades</h4>
+  <div class="vgrid">
+    <a class="vid" href="https://www.youtube.com/watch?v=34Ookq6D9cg" target="_blank" rel="noopener"><span class="vt">Migração e Crise dos Refugiados | Venezuela, Síria e Haiti | Geografia #27</span><span class="va">prof. Miko · Não Perca a Cabeça</span><span class="vw">Os mesmos três fluxos que aparecem nos slides do professor.</span><span class="go">▶ Assistir no YouTube</span></a>
+  </div>
+
+  <h4>Módulo 5 · Fuga de cérebros</h4>
+  <div class="vgrid">
+    <a class="vid" href="https://www.youtube.com/watch?v=gUQfbxJAN0I" target="_blank" rel="noopener"><span class="vt">FUGA DE CÉREBROS: Entenda de uma vez por todas!</span><span class="va">Ôxe Humanas</span><span class="vw">Conceito, causas e consequências da emigração qualificada.</span><span class="go">▶ Assistir no YouTube</span></a>
+    <a class="vid" href="https://www.youtube.com/watch?v=3akR1Z4CeZg" target="_blank" rel="noopener"><span class="vt">Fuga de Cérebros no Brasil: conceito, dados e mais!</span><span class="va">Quack · Redação, Vestibular e Enem</span><span class="vw">Dados brasileiros; também serve como repertório para redação.</span><span class="go">▶ Assistir no YouTube</span></a>
+  </div>
+</section>
+
+<!-- ============ REVISÃO FINAL ============ -->
+<section class="block" id="revisao">
+  <div class="kicker">Parte 8</div>
+  <h2>Revisão final dos conceitos principais</h2>
+
+  <div class="card">
+    <h4 style="margin-top:0">O tema em 12 frases</h4>
+    <ol>
+      <li><strong>População</strong> é conceito estatístico; <strong>povo</strong> é conceito de identidade e cidadania. Migrar reorganiza os dois.</li>
+      <li>O Brasil tem ~213 milhões de habitantes (2025), idade mediana de 35 anos e está no auge da <strong>transição demográfica</strong>.</li>
+      <li>O povo brasileiro vem de três matrizes (indígena, africana, europeia), numa miscigenação marcada por <strong>conflito e hierarquia</strong>.</li>
+      <li><strong>1850:</strong> Lei Eusébio de Queirós (fim do tráfico) + Lei de Terras (terra só por compra) → imigração europeia <strong>subvencionada</strong> e sem acesso à terra.</li>
+      <li>Café → urbanização → indústria: o imigrante vira <strong>operário e consumidor</strong>.</li>
+      <li><strong>1870–1953:</strong> 4.875.040 imigrantes, pico em 1880–1930, concentrados no Sul-Sudeste. Café em SP × colonização de povoamento no Sul.</li>
+      <li><strong>Anos 1930:</strong> Lei dos 2/3 e cota de 2% (1934). A “porta aberta” vira “porta vigiada” (nacionalismo e controle racial/ideológico).</li>
+      <li><strong>Migrações internas</strong> seguem a economia: NE → SE (indústria), S/NE → CO/N (fronteira, Brasília, rodovias), campo → cidade (mecanização).</li>
+      <li><strong>Pós-1990:</strong> queda das migrações inter-regionais, migração de <strong>retorno</strong> (SE → NE) e crescimento das <strong>cidades médias</strong> (guerra fiscal).</li>
+      <li><strong>Pós-pandemia:</strong> contraurbanização seletiva de profissionais em home office.</li>
+      <li><strong>Século XXI:</strong> imigrantes do <strong>Sul Global</strong> (haitianos, venezuelanos, bolivianos, africanos); Roraima e a Operação Acolhida (interiorização).</li>
+      <li>O Brasil também <strong>emite</strong> migrantes (3 milhões no exterior, brazucas, dekasseguis) e sofre com a <strong>fuga de cérebros</strong>, agravada pelos cortes na ciência, o que aumenta a dependência tecnológica.</li>
+    </ol>
+  </div>
+
+  <h4>Números que valem a pena decorar</h4>
+  <div class="stats">
+    <div class="stat"><div class="n">1850</div><div class="l">Eusébio de Queirós + Lei de Terras</div></div>
+    <div class="stat"><div class="n">4,87 mi</div><div class="l">imigrantes, 1870–1953</div></div>
+    <div class="stat"><div class="n">2%</div><div class="l">cota da Constituição de 1934</div></div>
+    <div class="stat"><div class="n">2/3</div><div class="l">de brasileiros natos nas empresas (1930)</div></div>
+    <div class="stat"><div class="n">13 mi</div><div class="l">nordestinos saíram, 1940–1980</div></div>
+    <div class="stat"><div class="n">1960</div><div class="l">Brasília / Revolução Verde</div></div>
+    <div class="stat"><div class="n">~1970</div><div class="l">população urbana supera a rural</div></div>
+    <div class="stat"><div class="n">8%</div><div class="l">de Boa Vista eram venezuelanos (2017/18)</div></div>
+    <div class="stat"><div class="n">100 mil</div><div class="l">interiorizados em 930 municípios (2023)</div></div>
+    <div class="stat"><div class="n">3 mi</div><div class="l">brasileiros emigraram em 25 anos</div></div>
+  </div>
+
+  <h4>Flashcards: tente responder antes de abrir</h4>
+  <div class="fc">
+    <details><summary>O que a Lei de Terras mudou?</summary><div class="db">Terras devolutas passaram a ser obtidas só por compra, o que bloqueou o acesso de pobres, libertos e imigrantes e protegeu o latifúndio.</div></details>
+    <details><summary>Por que o Estado subvencionou europeus?</summary><div class="db">Para substituir a mão de obra escravizada no café e por causa do projeto de branqueamento (racismo científico).</div></details>
+    <details><summary>Como funcionava a cota de 1934?</summary><div class="db">Entrada anual limitada a 2% dos nacionais de cada país fixados no Brasil nos últimos 50 anos. Ela penalizava fluxos recentes, como o japonês.</div></details>
+    <details><summary>Qual o motor do fluxo NE → SE (1930–1950)?</summary><div class="db">A industrialização por substituição de importações (Era Vargas), a CLT e o projeto nacional-desenvolvimentista, somados a seca e concentração fundiária no NE.</div></details>
+    <details><summary>Três causas da ocupação do CO e do N (1950–1970)?</summary><div class="db">Fronteira agrícola/Revolução Verde, construção de Brasília (1960) e rodovias de integração; incentivo militar com terras devolutas.</div></details>
+    <details><summary>O que é migração de retorno?</summary><div class="db">A volta de migrantes (ou de seus filhos) do Sudeste para o Nordeste, por saturação metropolitana no SE e dinamização econômica no NE.</div></details>
+    <details><summary>Por que as cidades médias crescem?</summary><div class="db">Desconcentração industrial (guerra fiscal), custo de vida menor, serviços, e a queda da migração de longa distância.</div></details>
+    <details><summary>Pendular × sazonal × transumância?</summary><div class="db">Pendular: ida e volta no mesmo dia. Sazonal: em épocas do ano. Transumância: sazonal ligada especificamente ao trabalho/atividade econômica.</div></details>
+    <details><summary>Qual o perfil do venezuelano em Boa Vista (2017)?</summary><div class="db">72% entre 20 e 39 anos; 51% saíram por crise econômica e 25,4% por crise política; 32,3% com superior completo ou pós.</div></details>
+    <details><summary>Quais são os três eixos da Operação Acolhida?</summary><div class="db">Ordenamento da fronteira, abrigamento e interiorização (complemento).</div></details>
+    <details><summary>Por que o Brasil é “país de trânsito”?</summary><div class="db">32% das entradas de venezuelanos resultaram em saídas para outros países pelos aeroportos.</div></details>
+    <details><summary>Fuga de cérebros → qual consequência?</summary><div class="db">Perda de capital humano e de patentes nacionais → aumento da dependência tecnológica dos países de menor IDH.</div></details>
+    <details><summary>Qual a diferença entre o fluxo de 1900 e o de 2015?</summary><div class="db">1900: Norte Global (europeus), subvencionado, para o café. 2015: Sul Global (haitianos, venezuelanos), fuga de crises, com acolhimento humanitário.</div></details>
+    <details><summary>O que é contraurbanização?</summary><div class="db">Saída de moradores das capitais para cidades pequenas e médias, no pós-pandemia ligada ao home office de profissionais qualificados.</div></details>
+  </div>
+
+  <div class="box key" style="margin-top:24px"><span class="t">Checklist de domínio: você consegue…</span>
+    <ul>
+      <li>explicar, sem olhar, por que 1850 é o ano-chave da imigração?</li>
+      <li>diferenciar o imigrante do café (SP) do colono do Sul?</li>
+      <li>dizer o motor econômico de cada fase das migrações internas?</li>
+      <li>calcular crescimento relativo e não confundi-lo com o absoluto?</li>
+      <li>ler um mapa de saldo migratório e explicar por que SP pode ter saldo negativo?</li>
+      <li>escrever quatro motivos (dois antigos, dois atuais) numa discursiva no padrão da UFPR?</li>
+      <li>relacionar fuga de cérebros, corte de verbas e dependência tecnológica?</li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p><strong>Material-base:</strong> apresentações do Prof. Bruno Mastrocola (Geografia Geral, 2ª série): “Fluxos Migratórios no Brasil: Formação Populacional, Imigração e Trabalho (Séculos XIX e XX)”, “Migrações Internas [Séc. XX e XXI]” e “Fluxos Migratórios e Atualidades: Imigração e Emigração”. Livro 04, Capítulo 02, pág. 38–42.</p>
+  <p>Trechos marcados como <em>Complemento para melhor compreensão</em> não estão nos slides e foram adicionados para facilitar o entendimento. Trechos marcados como leitura ou incerteza indicam dados ilegíveis, ambíguos ou divergentes no material original.</p>
+</footer>
+
+<script>
+(function(){
+  var fmtInt = function(n){ return Number(n).toLocaleString('pt-BR'); };
+  var fmtDec = function(n){ return Number(n).toLocaleString('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:2}); };
+  function parse(el){ try{ return JSON.parse(el.getAttribute('data-items')); }catch(e){ return []; } }
+
+  // Horizontal bars
+  document.querySelectorAll('.hbars').forEach(function(el){
+    var items = parse(el), pct = el.hasAttribute('data-pct');
+    var max = Math.max.apply(null, items.map(function(i){return i[1];}));
+    var g = document.createElement('div'); g.className='hb';
+    items.forEach(function(i){
+      var lb=document.createElement('div'); lb.className='lb'; lb.textContent=i[0];
+      var tr=document.createElement('div'); tr.className='tr';
+      var fl=document.createElement('div'); fl.className='fl '+(i[2]||''); fl.style.width=(Math.max(i[1]/max*100,0.6))+'%';
+      var vl=document.createElement('span'); vl.className='vl'; vl.textContent = pct ? fmtDec(i[1])+'%' : fmtInt(i[1]);
+      tr.appendChild(fl); g.appendChild(lb); g.appendChild(tr); g.appendChild(vl);
+    });
+    el.appendChild(g);
+  });
+
+  // Vertical columns
+  document.querySelectorAll('.vcols').forEach(function(el){
+    var items = parse(el), fmt = el.getAttribute('data-fmt');
+    var max = Math.max.apply(null, items.map(function(i){return i[1];}));
+    var vc=document.createElement('div'); vc.className='vc';
+    var vx=document.createElement('div'); vx.className='vx';
+    items.forEach(function(i,k){
+      var col=document.createElement('div'); col.className='col';
+      var v=document.createElement('div'); v.className='v';
+      var val=i[1];
+      if(fmt==='k') v.textContent = val>=1000000 ? fmtDec(val/1000000)+' mi' : Math.round(val/1000)+' mil';
+      else if(fmt==='pct') v.textContent = val+'%';
+      else if(fmt==='dec') v.textContent = fmtDec(val);
+      else v.textContent = fmtInt(val);
+      var b=document.createElement('div'); b.className='bar'; b.style.height=(val/max*88)+'%';
+      col.appendChild(v); col.appendChild(b); vc.appendChild(col);
+      var s=document.createElement('span'); s.textContent=i[0]; vx.appendChild(s);
+    });
+    var wrap=document.createElement('div'); wrap.className='cscroll';
+    var inner=document.createElement('div'); inner.style.minWidth=(items.length*44)+'px';
+    inner.appendChild(vc); inner.appendChild(vx); wrap.appendChild(inner); el.appendChild(wrap);
+  });
+
+  // Signed horizontal bars (saldo migratório)
+  document.querySelectorAll('.sbars').forEach(function(el){
+    var items = parse(el);
+    var max = Math.max.apply(null, items.map(function(i){return Math.abs(i[1]);}));
+    var g=document.createElement('div');
+    g.style.cssText='display:grid;grid-template-columns:34px 1fr 1fr;gap:3px 6px;align-items:center;font-size:.76rem';
+    items.forEach(function(i){
+      var lb=document.createElement('div'); lb.textContent=i[0]; lb.style.cssText='font-weight:700;font-family:var(--mono)';
+      var neg=document.createElement('div'); neg.style.cssText='display:flex;justify-content:flex-end;align-items:center;gap:5px;height:17px;border-right:2px solid var(--line)';
+      var pos=document.createElement('div'); pos.style.cssText='display:flex;justify-content:flex-start;align-items:center;gap:5px;height:17px';
+      var w=(Math.abs(i[1])/max*100)+'%';
+      var bar=document.createElement('div'); bar.style.cssText='height:100%;border-radius:3px;min-width:2px;width:'+w;
+      var t=document.createElement('span'); t.style.cssText='font-family:var(--mono);font-size:.68rem;white-space:nowrap;color:var(--ink2)';
+      t.textContent=(i[1]>0?'+':'')+fmtInt(i[1]);
+      if(i[1]<0){ bar.style.background='var(--red)'; neg.appendChild(t); neg.appendChild(bar);} else { bar.style.background='var(--green)'; pos.appendChild(bar); pos.appendChild(t);}
+      g.appendChild(lb); g.appendChild(neg); g.appendChild(pos);
+    });
+    el.appendChild(g);
+  });
+
+  // Diverging columns (entradas x saídas)
+  document.querySelectorAll('.divchart').forEach(function(el){
+    var items=parse(el);
+    var max=Math.max.apply(null, items.map(function(i){return Math.max(i[1],i[2]);}));
+    var d=document.createElement('div'); d.className='div';
+    var vx=document.createElement('div'); vx.className='vx';
+    items.forEach(function(i){
+      var col=document.createElement('div'); col.className='col';
+      var up=document.createElement('div'); up.className='up';
+      var dn=document.createElement('div'); dn.className='dn';
+      var v1=document.createElement('div'); v1.className='v'; v1.textContent=fmtInt(i[1]);
+      var b1=document.createElement('div'); b1.className='bi'; b1.style.height=(i[1]/max*80)+'%';
+      var b2=document.createElement('div'); b2.className='bo'; b2.style.height=(i[2]/max*80)+'%';
+      var v2=document.createElement('div'); v2.className='v'; v2.textContent=fmtInt(i[2]);
+      up.appendChild(v1); up.appendChild(b1); dn.appendChild(b2); dn.appendChild(v2);
+      col.appendChild(up); col.appendChild(dn); d.appendChild(col);
+      var s=document.createElement('span'); s.textContent=i[0]; vx.appendChild(s);
+    });
+    var wrap=document.createElement('div'); wrap.className='cscroll';
+    var inner=document.createElement('div'); inner.style.minWidth=(items.length*52)+'px';
+    inner.appendChild(d); inner.appendChild(vx); wrap.appendChild(inner); el.appendChild(wrap);
+  });
+
+  // Reading progress
+  var bar=document.getElementById('progress');
+  function prog(){ var h=document.documentElement; var p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100; bar.style.width=(p||0)+'%'; }
+  window.addEventListener('scroll',prog,{passive:true}); prog();
+
+  // Scrollspy
+  var links=[].slice.call(document.querySelectorAll('#navlinks a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+  function spy(){
+    var y=window.scrollY+110, idx=-1;
+    secs.forEach(function(s,k){ if(s && s.offsetTop<=y) idx=k; });
+    links.forEach(function(a,k){ a.classList.toggle('active',k===idx); });
+    if(idx>=0){ var a=links[idx], nav=document.getElementById('navlinks');
+      if(a.offsetLeft < nav.scrollLeft || a.offsetLeft+a.offsetWidth > nav.scrollLeft+nav.clientWidth){ nav.scrollLeft = a.offsetLeft-20; } }
+  }
+  window.addEventListener('scroll',spy,{passive:true}); spy();
+
+  // Theme toggle
+  var root=document.documentElement;
+  document.getElementById('themebtn').addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme');
+    var dark = cur ? cur==='dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    root.setAttribute('data-theme', dark?'light':'dark');
+  });
+
+  // Print: open all details
+  window.addEventListener('beforeprint',function(){ document.querySelectorAll('details').forEach(function(d){d.setAttribute('open','');}); });
+})();
+</script>
+</body>
+</html>
